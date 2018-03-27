@@ -1,0 +1,27 @@
+package connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionFactory {
+	
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	//Verificar se dessa forma funciona se nao adicionar o Trows
+	public static Connection realizarConexao(){
+		try {
+			return DriverManager.getConnection("jdbc:mysql://localhost/skynet?user=root&password=root");
+		}catch(SQLException e) {
+				System.out.println(e);
+				
+				}
+		return null;
+			}
+}
