@@ -17,4 +17,8 @@ public class LoginService {
 	public boolean ValidarSenha(Login login) {
 		return dao.ValidarSenha(login);
 	}
+	
+	public String selectTipo(Login login) {
+		return dao.carregarTipo(login);
+	}
 }

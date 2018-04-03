@@ -8,20 +8,11 @@ import java.sql.SQLException;
 import connection.ConnectionFactory;
 import model.Login;
 
+
 public class LoginDao {
 	//Implementado o tipo para validar as outras tabelas
 	public boolean SelectLogin(Login login){
-		String sqlSelect = "";
-		if(login.getTipo().equals("Administrador")) {
-			sqlSelect = "SELECT documento FROM cadAdm where documento= ?";
-		
-		}else if(login.getTipo().equals("Cartorio")) {
-			sqlSelect = "SELECT documento FROM cadCart where documento= ?";
-			
-		}else if(login.getTipo().equals("Empresa")) {
-			sqlSelect = "SELECT documento FROM cadEmp where documento= ?";
-		}
-
+		String sqlSelect = "SELECT documento FROM cadastros where documento= ?";
 		try {
 			Connection conn = ConnectionFactory.realizarConexao();
 			PreparedStatement stm = conn.prepareStatement(sqlSelect);
@@ -41,15 +32,8 @@ public class LoginDao {
 	}
 	
 	public boolean ValidarSenha(Login login) {
-			String sqlSelect = "";
-			if(login.getTipo().equals("Administrador")) {
-				sqlSelect = "SELECT senha FROM cadAdm where documento= ?";
-			}else if(login.getTipo().equals("Cartorio")) {
-				sqlSelect = "SELECT senha FROM cadCart where documento= ?";
-			}else if(login.getTipo().equals("Empresa")) {
-				sqlSelect = "SELECT senha FROM cadEmp where documento= ?";
-			}
-			
+			String sqlSelect = "SELECT senha FROM cadastros where documento= ?";
+		
 			try {
 				Connection conn = ConnectionFactory.realizarConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);
@@ -72,5 +56,25 @@ public class LoginDao {
 			}
 			return false;
 		}
+//carrega o tipo que o usuario esta cadastrado
+	public String carregarTipo(Login login) {
+		String sqlSelect = "SELECT tipo FROM cadastros where documento= ?";
+		String tipo = "";
+		try {
+			Connection conn = ConnectionFactory.realizarConexao();
+			PreparedStatement stm = conn.prepareStatement(sqlSelect);
+			
+			stm.setInt(1,login.getDocumento());
+			ResultSet rs = stm.executeQuery();
+			if(rs.next()) {
+				tipo = rs.getString("tipo");
+				System.out.println(tipo);
+			}
+		}catch(SQLException e) {
+			
+			System.out.println(e);
+		}
+		return tipo;
 	}
 
+}

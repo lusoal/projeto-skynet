@@ -1,14 +1,39 @@
 package model;
 
-public class Administrador {
+public class Cadastros {
 	private int documento;
 	private String nome;
+	private String tipo;
 	private String endereco;
 	private int telefone;
 	private int contatoDocumento;
 	private String contatoNome;
 	private String contatoEmail;
 	private String senha;
+	
+	public Cadastros() {
+		
+	}
+	public Cadastros(int documento, String nome, String endereco, int telefone, int contatoDocumento,
+			String contatoNome, String contatoEmail, String senha, String tipo) {
+		this.documento = documento;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.contatoDocumento = contatoDocumento;
+		this.contatoNome = contatoNome;
+		this.contatoEmail = contatoEmail;
+		this.senha = senha;
+		this.tipo = tipo;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	public int getDocumento() {
 		return documento;

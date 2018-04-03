@@ -12,6 +12,33 @@
 <title>Termo de Adesao</title>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Publico</a></li>
+          <li><a href="#">Administrador</a></li>
+          <li><a href="#">Cartorio</a></li>
+          <li><a href="#">Empresa</a></li>
+        </ul>
+      </li>	
+    </ul>
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</nav>
+
 <%String[] publico = (String[])request.getAttribute("publico"); %>
 <center>Voce do tipo <%=publico[1]%> inscrito no documento: <%=publico[0]%>, aceita o seguinte termo de adesão:</center>
 <center><div>
