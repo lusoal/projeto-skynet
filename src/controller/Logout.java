@@ -30,6 +30,7 @@ public class Logout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("documento");
 		session.invalidate();
+		System.out.println("Entrei no logout");
 		response.sendRedirect("index.html");
 	}
 

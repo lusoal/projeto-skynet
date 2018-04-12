@@ -21,4 +21,8 @@ public class PublicoService {
 		dao.RemoverPublico(publico);
 	}
 	
+	public void validarPublico(Publico publico) {
+		dao.verificarPublico(publico);
+	}
+	
 }

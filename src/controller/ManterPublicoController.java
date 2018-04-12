@@ -25,17 +25,15 @@ public class ManterPublicoController extends HttpServlet {
 		if(action.equals("/CadastrarPublico")) {
 			String pDocumento = request.getParameter("documento");
 			String pTipo = request.getParameter("tipo");
+			String pNome = request.getParameter("nome");
 			
-			Publico publico = new Publico(Integer.parseInt(pDocumento),pTipo);
+			Publico publico = new Publico(Long.parseLong(pDocumento),pTipo, pNome);
 			PublicoService pService = new PublicoService();
 			
 			long testeCnpj = pService.ValidarCnpj(publico);
 			if (testeCnpj != -1) {
 				pService.InserirPublico(publico);
-				String[] array = {pDocumento, pTipo};
-				request.setAttribute("publico", array);
-				RequestDispatcher view = request.getRequestDispatcher("termos/adesao.jsp");
-				view.forward(request, response);
+				response.sendRedirect("index.html");
 			}else {
 				String erro;
 				if (testeCnpj == -1) {

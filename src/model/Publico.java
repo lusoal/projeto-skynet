@@ -2,24 +2,34 @@ package model;
 
 public class Publico {
 	
-	private int documento;
+	private long documento;
 	private String tipo;
 	private boolean status;
+	private String nome;
 
-	public Publico(int documento, String tipo) {
+	public Publico(long documento, String tipo, String nome) {
 		this.documento = documento;
 		this.tipo = tipo;
 		status = false;
+		this.nome = nome;
 	}
 	
 	public Publico() {
 		
 	}
 	
-	public int getDocumento() {
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public long getDocumento() {
 		return documento;
 	}
-	public void setDocumento(int documento) {
+	public void setDocumento(long documento) {
 		this.documento = documento;
 	}
 	

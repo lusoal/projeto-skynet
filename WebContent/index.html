@@ -1,56 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <title>SkynetProject</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="img/skynet_t_shirt_textual_tees.png"
+	type="image/x-png" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+	href="vendor/simple-line-icons/css/simple-line-icons.css">
+<link href="css/one-page-wonder.css" rel="stylesheet">
+
+    
+    <script>
+    
+   $(function(){
+var texto = 1;
+var string;
+
+setInterval(function(){
+    switch(texto) {
+        case 1: string = "Otimize o tempo da sua empresa Conosco!"; break;
+        case 2: string = "Nós temos a solução ideal para o seu negócio."; break;
+        case 3: string = "Inscreva-se logo abaixo e realize seu Pré-Cadastro!"; break;
+    }
+
+    $('.texto').html(string);
+
+    texto != 3 ? texto++ : texto = 1;
+}, 1800);
+});
+    
+    </script>
+    
+
+<title>SkyNetProject</title>
+
+
 </head>
+
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+		style="background-color: white;">
+		
+        <div class="container">
+			<a class="navbar-brand" href="index.html" ><img
+				src="img/navbar1.jpg" width=80% height=40%
+				style="float: left; margin-left: 0%"></a>
+            
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				
+                <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="index.html"> <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"><b>Já Realizei o Pré-Cadastro</b> <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<form class="form-signin" action="VerificarPreCadastro" method="post">
+								<h6 class="form-signin-heading" align="center">Insira seu
+									Documento</h6>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="cadastrar_publico.html">Publico</a></li>
-          <li><a href="cadastros/verificar_pre_cadastro.html">Cadastrar</a></li>
-        </ul>
-      </li>	
-    </ul>
-    <form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" name="search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-</nav>
+								<label for="inputEmail" class="sr-only"> Digite seu CPF
+								</label> <input name="documento" class="form-control"
+									placeholder="Digite seu CPF" required autofocus>
 
-<div class="container">
-  	<div class="row">
-  		<div class=col-sm-4></div>
-  		<div class=col-sm-4></div>
-       <div class=col-sm-4> <form class="form-signin" action="RealizarLogin" method="post">
-        <h2 class="form-signin-heading">Realize seu Login</h2>
-        <label for="inputEmail" class="sr-only">Documento</label>
-        <input name="documento" class="form-control" placeholder="Documento" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <br>
-        <input type="password" name="senha" class="form-control" placeholder="Password" required>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form></div>
-  </div> 
-  </div>
+								<button class="btn btn-sm btn btn-success btn-block"
+									type="submit">Cadastrar</button>
+
+							</form>
+
+						</ul></li>
+					<li class="nav-item"><a class="nav-link" href=""></a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"><b>Login</b><span
+							class="caret"></span></a>
+						
+						<ul class="dropdown-menu">
+							<form class="form-signin" action="RealizarLogin" method="post">
+								<h6 class="form-signin-heading" align="center">Realize seu
+									Login</h6>
+								<label for="inputEmail" class="sr-only"> Digite seu CPF
+								</label> <input name="documento" class="form-control"
+									placeholder="Digite seu CPF" required autofocus> <label
+									for="inputPassword" class="sr-only">Digite sua Senha</label> <input
+									type="password" name="senha" class="form-control"
+									placeholder="Digite sua senha" required>
+
+								<button  class="btn btn-sm btn btn-success btn-block"
+									type="submit">Entrar</button>
+
+							</form>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+
+
+	<header class="masthead">
+		<div class="overlay">
+			<div class="container">
+				<div class="texto"></div>
+				<br> <br> <br> <a href="cadastro/precadastro.jsp"
+					class="btn  btn-light btn-lg  btn-block">Pré-Cadastro</a>
+			</div>
+		</div>
+	</header>
+
+	<section class="features" id="features">
+		<div class="container">
+			<div class="section-heading text-center">
+				<h2>Maior facilidade para sua empresa!</h2>
+				<p class="text-muted">Nós viemos para que seu tempo seja muito
+					mais otimizado!</p>
+				<hr>
+			</div>
+			<div class="row">
+
+				
+			</div>
+		</div>
+
+		<div class="col-lg-12 my-auto">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="feature-item">
+							<i class="icon-cloud-upload text-primary"></i>
+							<h3>Realize Uploads</h3>
+							<p class="text-muted">Nossa plataforma está preparada para
+								receber os documentos de sua empresa!</p>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="feature-item">
+							<i class=" icon-cloud-download text-primary"></i>
+							<h3>Realize Downloads</h3>
+							<p class="text-muted">Selecione os documentos que você deseja
+								baixar sobre sua empresa, sem complicação!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="feature-item">
+							<i class=" icon-link text-primary"></i>
+							<h3>Totalmente Integrado</h3>
+							<p class="text-muted">Sempre disponível para tudo que você e
+								sua empresa precisarem, totalmente dinâmico!</p>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="feature-item">
+							<i class=" icon-user-following text-primary"></i>
+							<h3>Controle em Suas Mãos</h3>
+							<p class="text-muted">Sua empresa totalmente em suas mãos!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+
+			<p class="m-0 text-center text-white">TODOS DIREITOS RESERVADOS
+				&copy; SkyNetProject</p>
+
+			<div class="redes">
+				<a href="#" target="_blank"> <img
+					class="img-fluid" src="img/instagram.png" width=2% height=2%></a>
+				<a href="#" target="_blank"> <img
+					class="img-fluid" src="img/twitter.png" width=2% height=2%></a>
+			</div>
+
+		</div>
+		
+	</footer>
 
 </body>
+
 </html>

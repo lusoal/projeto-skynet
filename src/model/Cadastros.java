@@ -1,31 +1,82 @@
 package model;
 
 public class Cadastros {
-	private int documento;
+	private long documento;
 	private String nome;
 	private String tipo;
+	private String email;
 	private String endereco;
-	private int telefone;
+	private int telefoneFixo;
+	private int telefoneCelular;
+	private String nomeContato;
 	private int contatoDocumento;
-	private String contatoNome;
 	private String contatoEmail;
 	private String senha;
+	private String site;
+	private String dataAbertura;
 	
+	public Cadastros(long documento, String nome, String tipo, String email, String endereco, int telefoneFixo,
+			int telefoneCelular, String nomeContato, int contatoDocumento, String contatoEmail, String senha,
+			String site, String dataAbertura) {
+		this.documento = documento;
+		this.nome = nome;
+		this.tipo = tipo;
+		this.email = email;
+		this.endereco = endereco;
+		this.telefoneFixo = telefoneFixo;
+		this.telefoneCelular = telefoneCelular;
+		this.nomeContato = nomeContato;
+		this.contatoDocumento = contatoDocumento;
+		this.contatoEmail = contatoEmail;
+		this.senha = senha;
+		this.site = site;
+		this.dataAbertura = dataAbertura;
+	}
+
 	public Cadastros() {
 		
 	}
-	public Cadastros(int documento, String nome, String endereco, int telefone, int contatoDocumento,
-			String contatoNome, String contatoEmail, String senha, String tipo) {
-		this.documento = documento;
-		this.nome = nome;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.contatoDocumento = contatoDocumento;
-		this.contatoNome = contatoNome;
-		this.contatoEmail = contatoEmail;
-		this.senha = senha;
-		this.tipo = tipo;
+
+	public String getEmail() {
+		return email;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTelefoneCelular() {
+		return telefoneCelular;
+	}
+
+	public void setTelefoneCelular(int telefoneCelular) {
+		this.telefoneCelular = telefoneCelular;
+	}
+
+	public String getNomeContato() {
+		return nomeContato;
+	}
+
+	public void setNomeContato(String nomeContato) {
+		this.nomeContato = nomeContato;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+	public String getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(String dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
 
 	public String getTipo() {
 		return tipo;
@@ -35,11 +86,11 @@ public class Cadastros {
 		this.tipo = tipo;
 	}
 
-	public int getDocumento() {
+	public long getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(long documento) {
 		this.documento = documento;
 	}
 
@@ -59,12 +110,12 @@ public class Cadastros {
 		this.endereco = endereco;
 	}
 
-	public int getTelefone() {
-		return telefone;
+	public int getTelefoneFixo() {
+		return telefoneFixo;
 	}
 
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
+	public void setTelefoneFixo(int telefoneFixo) {
+		this.telefoneFixo = telefoneFixo;
 	}
 
 	public int getContatoDocumento() {
@@ -73,14 +124,6 @@ public class Cadastros {
 
 	public void setContatoDocumento(int contatoDocumento) {
 		this.contatoDocumento = contatoDocumento;
-	}
-
-	public String getContatoNome() {
-		return contatoNome;
-	}
-
-	public void setContatoNome(String contatoNome) {
-		this.contatoNome = contatoNome;
 	}
 
 	public String getContatoEmail() {

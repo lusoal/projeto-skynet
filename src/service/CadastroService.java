@@ -23,9 +23,10 @@ public class CadastroService {
 			dao.RemoverCadastro(cad);
 		}
 		
-		public boolean validarPreCad(Cadastros cad) {
+		public String[] validarPreCad(Cadastros cad) {
 			return dao.checkCad(cad);
 		}
+		
 		//Action implementada somente para o ADM
 		public ArrayList<Publico> ValidarPublico(Publico publico) {
 			return dao.RetornarPublico(publico);
