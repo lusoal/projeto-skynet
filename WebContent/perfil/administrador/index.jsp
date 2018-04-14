@@ -74,8 +74,7 @@
 			<div class="nav flex-column nav-pills" id="v-pills-tab"
 				role="tablist" aria-orientation="vertical">
 				<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-					href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-					aria-selected="true">Solicitacoes</a> <a class="nav-link"
+				href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Solicitacoes</a> <a class="nav-link"
 					id="v-pills-settings-tab" data-toggle="pill"
 					href="#v-pills-settings" role="tab"
 					aria-controls="v-pills-settings" aria-selected="false">Termos
@@ -83,12 +82,7 @@
 					data-toggle="pill" href="#v-TERMS-settings" role="tab"
 					aria-controls="v-TERMS-settings" aria-selected="false">Termos
 					Cartorio</a>
-
-
 			</div>
-
-
-
 		</div>
 		<div class="col-md-10">
 			<div class="tab-content" id="v-pills-tabContent">
@@ -106,19 +100,21 @@
 								</tr>
 							</thead>
 							<tbody>
-							
 							<c:forEach var="publico" items="${arrayPublico}">
-								<tr>
-									<td>${publico.tipo}</td>
-									<td>${publico.documento}</td>
-									<td>${publico.nome}</td>
-									<td>${publico.status}</td>
-									<td><button type="button" class="btn btn-success btn-sm">Aprovar</button>
-										<button type="button" class="btn btn-danger btn-sm">Recusar</button>
-									</td>
-								</tr>
+								<form action="${pageContext.request.contextPath}/AlterarPublico" method="post">
+									<tr>
+									<td><input type="text" name="tipo" value="${publico.tipo}"readonly></td>
+									<td><input type="text" name="documento" value="${publico.documento}"readonly></td>
+									<td><input type="text" name="nome" value="${publico.nome}" readonly></td>
+									<td><select class="form-control" name="status">
+									<option value="${publico.status}">${publico.status}</option>
+									<option value="true">true</option>
+									</select></td>
+									<td><button type="submit" class="btn btn-success btn-sm">Alterar</button></td>
+									</tr></form>
+
 								</c:forEach>
-								
+
 							</tbody>
 						</table>
 					</div>

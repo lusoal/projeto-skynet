@@ -99,7 +99,7 @@ public class PublicoDao {
 	
 	public ArrayList<Publico> RetornarPublico() {
 
-		String sqlSelect = "SELECT * FROM precadastro";
+		String sqlSelect = "SELECT * FROM precadastro where status != 1";
 		ArrayList<Publico> p = new ArrayList<Publico>();
 		
 		try {
@@ -122,5 +122,22 @@ public class PublicoDao {
 		return p;
 
 	}
+	
+	public void alterarStatus(Publico pub){
+		String sqlAlter = "UPDATE precadastro SET status = ? WHERE documento= ?";
+		
+		try {
+			Connection conn = ConnectionFactory.realizarConexao();
+			PreparedStatement stm = conn.prepareStatement(sqlAlter);
+			stm.setBoolean(1,pub.getStatus());
+			stm.setLong(2,pub.getDocumento());
+			stm.execute();
+			//Essa parte e necessaria para poder inserir um valor no ID para mostrar no HTML gerado pelo Controller
+		}catch(SQLException e) {
+			System.out.println(e);
+		}
+	}
 
+	
+	
 }

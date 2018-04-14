@@ -32,4 +32,7 @@ public class PublicoService {
 		return dao.RetornarPublico();
 	}
 	
+	public void alterarStatus(Publico pub) {
+		dao.alterarStatus(pub);
+	}
 }

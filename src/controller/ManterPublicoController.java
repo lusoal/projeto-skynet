@@ -3,6 +3,7 @@ import service.PublicoService;
 import model.Publico;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,12 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico"})
+@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico", "/AlterarPublico"})
 public class ManterPublicoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,6 +60,21 @@ public class ManterPublicoController extends HttpServlet {
 	
 			service.deletarPublico(publico.getDocumento());
 			response.sendRedirect("index.html");
+		}
+		
+		if(action.equals("/AlterarPublico")) {
+			String pdocumento = request.getParameter("documento");
+			String pStatus = request.getParameter("status");
+			
+			System.out.println(pdocumento);
+			System.out.println(pStatus);
+			Publico publico = new Publico();
+			publico.setDocumento(Long.parseLong(pdocumento));
+			publico.setStatus(Boolean.parseBoolean(pStatus));
+			
+			PublicoService service = new PublicoService();
+			service.alterarStatus(publico);
+			response.sendRedirect(request.getHeader("referer"));
 		}
 	
 	
