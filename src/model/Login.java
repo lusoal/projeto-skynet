@@ -1,18 +1,18 @@
 package model;
 
 public class Login {
-	private int documento;
+	private long documento;
 	private String senha;
 
-	public Login(int documento, String senha) {
+	public Login(long documento, String senha) {
 		this.documento = documento;
 		this.senha = senha;
 	}
 
-	public int getDocumento() {
+	public long getDocumento() {
 		return documento;
 	}
-	public void setDocumento(int documento) {
+	public void setDocumento(long documento) {
 		this.documento = documento;
 	}
 	public String getSenha() {

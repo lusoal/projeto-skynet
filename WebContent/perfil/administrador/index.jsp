@@ -1,6 +1,12 @@
+<%@page import="java.util.ArrayList"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="model.Publico" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
 <meta charset="utf-8">
 <link rel="shortcut icon"
@@ -30,8 +36,9 @@
 
 </head>
 <body style="background: white;">
-
-
+<% if(session.getAttribute("documento") == null) {
+	response.sendRedirect("../../index.html");
+}%>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		style="background: white;">
 		<div class="container">
@@ -48,9 +55,9 @@
 					<li class="nav-item active"><a class="nav-link"
 						href="../index.html"> <span class="sr-only">(current)</span>
 					</a></li>
-                    <button type="submit" class="btn  btn-sm" value="Sair">
-                  <i class="icon-logout text-primary"></i>
-</button>
+					<form action="${pageContext.request.contextPath}/Logout" method="post">
+                    <button type="submit" class="btn btn-info">Sair</button>
+					</form>
 				</ul>
 			</div>
 		</div>
@@ -68,14 +75,14 @@
 				role="tablist" aria-orientation="vertical">
 				<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
 					href="#v-pills-home" role="tab" aria-controls="v-pills-home"
-					aria-selected="true">Solicitações</a> <a class="nav-link"
+					aria-selected="true">Solicitacoes</a> <a class="nav-link"
 					id="v-pills-settings-tab" data-toggle="pill"
 					href="#v-pills-settings" role="tab"
 					aria-controls="v-pills-settings" aria-selected="false">Termos
 					Empresa</a> <a class="nav-link" id="v-pills-TERMS-tab"
 					data-toggle="pill" href="#v-TERMS-settings" role="tab"
 					aria-controls="v-TERMS-settings" aria-selected="false">Termos
-					Cartório</a>
+					Cartorio</a>
 
 
 			</div>
@@ -83,13 +90,7 @@
 
 
 		</div>
-
-
-
-
 		<div class="col-md-10">
-
-
 			<div class="tab-content" id="v-pills-tabContent">
 				<div class="tab-pane fade show active" id="v-pills-home"
 					role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -100,38 +101,24 @@
 								<tr>
 									<th>Tipo</th>
 									<th>CNPJ</th>
-									<th>Razão social</th>
+									<th>Razao social</th>
 									<th>Status</th>
-
-
-
 								</tr>
 							</thead>
 							<tbody>
+							
+							<c:forEach var="publico" items="${arrayPublico}">
 								<tr>
-									<td>Empresa</td>
-									<td>01.154.178/0001-65</td>
-									<td>João e maria unidos pelo crescimento social.me</td>
+									<td>${publico.tipo}</td>
+									<td>${publico.documento}</td>
+									<td>${publico.nome}</td>
+									<td>${publico.status}</td>
 									<td><button type="button" class="btn btn-success btn-sm">Aprovar</button>
 										<button type="button" class="btn btn-danger btn-sm">Recusar</button>
 									</td>
 								</tr>
-								<tr>
-									<td>Cartório</td>
-									<td> 02.154.698/0005-85</td>
-									<td>banquinha do seu Zé</td>
-									<td><button type="button" class="btn btn-success btn-sm">Aprovar</button>
-										<button type="button" class="btn btn-danger btn-sm">Recusar</button>
-									</td>
-								</tr>
-								<tr>
-									<td>Empresa</td>
-									<td>10.564.584/0002-54</td>
-									<td>Dooley Logistica financeira ltda me</td>
-									<td><button type="button" class="btn btn-success btn-sm">Aprovar</button>
-										<button type="button" class="btn btn-danger btn-sm">Recusar</button>
-									</td>
-								</tr>
+								</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>
@@ -148,7 +135,7 @@
 							<div class="card-body">
 								<h4 class="card-title">TERMOS EMPRESA</h4>
 								<p class="card-text">Aqui encontram-se todos os Termos para
-									a adesão do projeto.</p>
+									a adesÃ£o do projeto.</p>
 
 								<form action="URL" type="get">
 									<input name="upload" type="file">
@@ -174,7 +161,7 @@
 											<tr>
 												<td>Empresa</td>
 												<td>01.154.178/0001-65</td>
-												<td>João e maria unidos pelo crescimento social.me</td>
+												<td>JoÃ£o e maria unidos pelo crescimento social.me</td>
 												<td><button type="button"
 														class="btn btn-success btn-sm">Download</button></td>
 											</tr>
@@ -211,7 +198,7 @@
 							<div class="card-body">
 								<h4 class="card-title">TERMOS CARTORIO</h4>
 								<p class="card-text">Aqui encontram-se todos os Termos para
-									a adesão do projeto.</p>
+									a adesÃ£o do projeto.</p>
 								<form action="URL" type="get">
 									<input name="upload" type="file">
 									<button type="submit">Enviar</button>
@@ -236,7 +223,7 @@
 											<tr>
 												<td>Empresa</td>
 												<td>01.154.178/0001-65</td>
-												<td>João e maria unidos pelo crescimento social.me</td>
+												<td>JoÃ£o e maria unidos pelo crescimento social.me</td>
 												<td><button type="button"
 														class="btn btn-success btn-sm">Download</button></td>
 											</tr>

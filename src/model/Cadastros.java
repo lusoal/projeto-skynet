@@ -6,17 +6,17 @@ public class Cadastros {
 	private String tipo;
 	private String email;
 	private String endereco;
-	private int telefoneFixo;
-	private int telefoneCelular;
+	private long telefoneFixo;
+	private long telefoneCelular;
 	private String nomeContato;
-	private int contatoDocumento;
+	private long contatoDocumento;
 	private String contatoEmail;
 	private String senha;
 	private String site;
 	private String dataAbertura;
 	
-	public Cadastros(long documento, String nome, String tipo, String email, String endereco, int telefoneFixo,
-			int telefoneCelular, String nomeContato, int contatoDocumento, String contatoEmail, String senha,
+	public Cadastros(long documento, String nome, String tipo, String email, String endereco, long telefoneFixo,
+			long telefoneCelular, String nomeContato, long contatoDocumento, String contatoEmail, String senha,
 			String site, String dataAbertura) {
 		this.documento = documento;
 		this.nome = nome;
@@ -45,11 +45,11 @@ public class Cadastros {
 		this.email = email;
 	}
 
-	public int getTelefoneCelular() {
+	public long getTelefoneCelular() {
 		return telefoneCelular;
 	}
 
-	public void setTelefoneCelular(int telefoneCelular) {
+	public void setTelefoneCelular(long telefoneCelular) {
 		this.telefoneCelular = telefoneCelular;
 	}
 
@@ -110,19 +110,19 @@ public class Cadastros {
 		this.endereco = endereco;
 	}
 
-	public int getTelefoneFixo() {
+	public long getTelefoneFixo() {
 		return telefoneFixo;
 	}
 
-	public void setTelefoneFixo(int telefoneFixo) {
+	public void setTelefoneFixo(long telefoneFixo) {
 		this.telefoneFixo = telefoneFixo;
 	}
 
-	public int getContatoDocumento() {
+	public long getContatoDocumento() {
 		return contatoDocumento;
 	}
 
-	public void setContatoDocumento(int contatoDocumento) {
+	public void setContatoDocumento(long contatoDocumento) {
 		this.contatoDocumento = contatoDocumento;
 	}
 

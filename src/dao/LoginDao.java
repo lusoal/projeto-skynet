@@ -12,12 +12,12 @@ import model.Login;
 public class LoginDao {
 	//Implementado o tipo para validar as outras tabelas
 	public boolean SelectLogin(Login login){
-		String sqlSelect = "SELECT documento FROM cadastros where documento= ?";
+		String sqlSelect = "SELECT documento FROM cadastro where documento= ?";
 		try {
 			Connection conn = ConnectionFactory.realizarConexao();
 			PreparedStatement stm = conn.prepareStatement(sqlSelect);
 			
-			stm.setInt(1,login.getDocumento());
+			stm.setLong(1,login.getDocumento());
 			ResultSet rs = stm.executeQuery();
 			if(rs.next()) {
 				return true;
@@ -32,13 +32,13 @@ public class LoginDao {
 	}
 	
 	public boolean ValidarSenha(Login login) {
-			String sqlSelect = "SELECT senha FROM cadastros where documento= ?";
+			String sqlSelect = "SELECT senha FROM cadastro where documento= ?";
 		
 			try {
 				Connection conn = ConnectionFactory.realizarConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);
 				
-				stm.setInt(1,login.getDocumento());
+				stm.setLong(1,login.getDocumento());
 				ResultSet rs = stm.executeQuery();
 				if(rs.next()) {
 					String pass = rs.getString("senha");
@@ -58,13 +58,13 @@ public class LoginDao {
 		}
 //carrega o tipo que o usuario esta cadastrado
 	public String carregarTipo(Login login) {
-		String sqlSelect = "SELECT tipo FROM cadastros where documento= ?";
+		String sqlSelect = "SELECT tipo FROM cadastro where documento= ?";
 		String tipo = "";
 		try {
 			Connection conn = ConnectionFactory.realizarConexao();
 			PreparedStatement stm = conn.prepareStatement(sqlSelect);
 			
-			stm.setInt(1,login.getDocumento());
+			stm.setLong(1,login.getDocumento());
 			ResultSet rs = stm.executeQuery();
 			if(rs.next()) {
 				tipo = rs.getString("tipo");

@@ -1,5 +1,8 @@
 package service;
 import model.Publico;
+
+import java.util.ArrayList;
+
 import dao.PublicoDao;
 
 public class PublicoService {
@@ -17,12 +20,16 @@ public class PublicoService {
 		return dao.VerificarCadastro(publico);
 	}
 	
-	public void deletarPublico(Publico publico) {
-		dao.RemoverPublico(publico);
+	public void deletarPublico(long documento) {
+		dao.RemoverPublico(documento);
 	}
 	
 	public void validarPublico(Publico publico) {
 		dao.verificarPublico(publico);
+	}
+	
+	public ArrayList<Publico> retornaTodoPublico() {
+		return dao.RetornarPublico();
 	}
 	
 }

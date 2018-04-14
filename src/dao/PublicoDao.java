@@ -4,12 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+import java.util.ArrayList;
 
 import connection.ConnectionFactory;
-import jdk.nashorn.internal.runtime.events.RuntimeEvent;
-import model.Cadastros;
 import model.Publico;
 
 public class PublicoDao {
@@ -33,13 +30,13 @@ public class PublicoDao {
 		}
 	}
 	
-	public void RemoverPublico(Publico publico){
+	public void RemoverPublico(long documento){
 		String sqlDelete = "DELETE FROM precadastro WHERE documento = ?";
 		
 		try {
 			Connection conn = ConnectionFactory.realizarConexao();
 			PreparedStatement stm = conn.prepareStatement(sqlDelete);
-			stm.setLong(1,publico.getDocumento());
+			stm.setLong(1,documento);
 			stm.execute();
 			//Essa parte e necessaria para poder inserir um valor no ID para mostrar no HTML gerado pelo Controller
 		}catch(SQLException e) {
@@ -97,6 +94,33 @@ public class PublicoDao {
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+	}
+	
+	
+	public ArrayList<Publico> RetornarPublico() {
+
+		String sqlSelect = "SELECT * FROM precadastro";
+		ArrayList<Publico> p = new ArrayList<Publico>();
+		
+		try {
+			Connection conn = ConnectionFactory.realizarConexao();
+			PreparedStatement stm = conn.prepareStatement(sqlSelect);
+			ResultSet rs = stm.executeQuery();	
+			
+			while(rs.next()) {
+				Publico pb = new Publico();
+				pb.setDocumento(rs.getLong("documento"));
+				pb.setTipo(rs.getString("tipo"));
+				pb.setStatus(rs.getBoolean("status"));
+				pb.setNome(rs.getString("nome"));
+				p.add(pb);
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+		return p;
+
 	}
 
 }

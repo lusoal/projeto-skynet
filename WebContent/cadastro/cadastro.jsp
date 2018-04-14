@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="model.Publico" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,6 +38,7 @@
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../index.html");
 }%>
+<% if(session.getAttribute("documento") != null){ %>
 <%Publico publico =(Publico)session.getAttribute("publico"); %>
 	<!--    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>-->
 	<!-- Navigation -->
@@ -59,7 +59,7 @@
 						href="../index.html"> <span class="sr-only">(current)</span>
 					</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"><strong>Ja¡ Realizei o
+						data-toggle="dropdown" href="#"><strong>Ja Realizei o
 								Pre-Cadastro</strong> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<form class="form-signin" action="RealizarLogin" method="post">
@@ -115,49 +115,57 @@
     <h1>Cadastro</h1>
     
     <div class ="containder-fluid">
+    <form action="${pageContext.request.contextPath}/CadastrarUsuario" method="post">
     <div id="color_23">
         
     <div class="row">
         <br>
-	<div class="form-group col-md-7">
-        
+	<div class="form-group col-md-4">
 		<label for="name">Nome / Razao Social</label> <input type="text"
-			class="form-control" name="nome" value="<%= publico.getNome() %>" disabled>
+			class="form-control" name="nome" value="<%= publico.getNome() %>">
+	</div>
+	<div class="form-group col-md-3">
+		<label for="name">Email</label> <input type="text"
+			class="form-control" name="email">
 	</div>
 	<div class="form-group col-md-3">
 		<label for="campo2">CNPJ / CPF</label> <input type="text"
-			class="form-control" value="<%= publico.getDocumento() %>" name="documento" disabled>
+			class="form-control" value="<%= publico.getDocumento() %>" name="documento">
 	</div>
 	<div class="form-group col-md-2">
 		<label for="campo3">Tipo</label> <input type="text"
-			class="form-control" value="<%= publico.getTipo() %>" name="tipo" disabled>
+			class="form-control" value="<%= publico.getTipo() %>" name="tipo">
 	</div>
 </div>
         
 <div class="row">
 	<div class="form-group col-md-8">
 		<label for="campo1">Endereco</label> <input type="text"
-			class="form-control" name="customer['address']">
+			class="form-control" name="endereco">
 	</div>
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
-			class="form-control" name="customer['hood']">
+			class="form-control" name="telefone_fixo">
 	</div>
 	<div class="form-group col-md-2">
 		<label for="campo3">Celular</label> <input type="text"
-			class="form-control" name="customer['celular']">
+			class="form-control" name="telefone_celular">
     </div>
         
         </div>
         
 <div class="row">
-	<div class="form-group col-md-7">
-		<label for="campo1">Nome Contato Principal</label> <input type="text"
-			class="form-control" name="customer['city']">
+	<div class="form-group col-md-3">
+		<label for="campo1">Documento Contato Principal</label> <input type="text"
+			class="form-control" name="cont_doc">
 	</div>
 	<div class="form-group col-md-5">
+		<label for="campo1">Nome Contato Principal</label> <input type="text"
+			class="form-control" name="cont_nome">
+	</div>
+	<div class="form-group col-md-4">
 		<label for="campo2">E-mail contato Principal </label> <input type="text"
-			class="form-control" name="customer['phone']">
+			class="form-control" name="cont_email">
 	</div>
     </div>
         
@@ -165,36 +173,33 @@
         <div class="form-group col-md-6">
             
 		<label for="campo3">Site</label> <input type="text"
-			class="form-control" name="customer['mobile']">
+			class="form-control" name="site">
 	</div>
          
         
 	<div class="form-group col-md-3">
 		<label for="campo3">Data Abertura</label> <input type="text" class="form-control"
-			name="customer['state']">
+			name="data">
 	</div>
 	<div class="form-group col-md-3">
-		<label for="campo3">Senha</label> <input type="text"
-			class="form-control" name="customer['ie']">
+		<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha">
 	</div>
-	</div>
-
-        
-        
-        
+	</div>     
 <div id="actions" class="row">
-    
-	<div class="col-md-12">
+	<div class="col-sm-1">
 		<button type="submit" class="btn btn-primary">Salvar</button>
-		
-		<form action="${pageContext.request.contextPath}/Logout" method="post">
-			<button type="submit" class="btn btn-default">Cancelar</button>
-		</form>
 	</div>
 </div>
         </div>
+        </form>
+        <div class="col-md-2" style="position:absolute; left: 10% ">
+	     <form action="${pageContext.request.contextPath}/Logout" method="post">
+			<button type="submit" class="btn btn-default">Cancelar</button>
+		</form>
        </div>
- 
+      
+	</div>
+ <%} %>
     </body>
      
 </html>

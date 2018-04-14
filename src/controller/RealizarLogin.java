@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Login;
+import model.Publico;
 import service.LoginService;
+import service.PublicoService;
 
 @WebServlet("/RealizarLogin")
 public class RealizarLogin extends HttpServlet {
@@ -21,7 +24,7 @@ public class RealizarLogin extends HttpServlet {
 		String pDocumento = request.getParameter("documento");
 		String psenha = request.getParameter("senha");
 		
-		Login logar = new Login(Integer.parseInt(pDocumento),psenha);
+		Login logar = new Login(Long.parseLong(pDocumento),psenha);
 		LoginService service = new LoginService();
 		
 		//Verifica se esta cadastrado
@@ -29,24 +32,27 @@ public class RealizarLogin extends HttpServlet {
 		
 		if (validar==true) {
 			boolean pass = service.ValidarSenha(logar);
-			System.out.println(pass);
+			
 			//carrega o tipo do usuario cadastrado
 			String carregarTipo = service.selectTipo(logar);
-			if(pass == true && carregarTipo.equals("Administrador")) {
-				//http session necessario para criar a sessao do usuario
+			
+			if(pass == true && carregarTipo.equals("administrador")) {
+				PublicoService serv = new PublicoService();
+				ArrayList<Publico> p = serv.retornaTodoPublico();
 				HttpSession session=request.getSession();  
-		        session.setAttribute("documento", pDocumento);  
-				response.sendRedirect("perfis/administrador/adm_index.jsp");
+		        session.setAttribute("documento", pDocumento);
+		        session.setAttribute("arrayPublico", p);
+				response.sendRedirect("perfil/administrador/index.jsp");
 				
-			}else if(pass == true && carregarTipo.equals("Cartorio")) {
+			}else if(pass == true && carregarTipo.equals("cartorio")) {
+				HttpSession session=request.getSession();  
+		        session.setAttribute("documento", logar.getDocumento());  
+				response.sendRedirect("perfil/cartorio/index.jsp");
 				
-				//Implementar depois
-				response.sendRedirect("perfis/cartorio/cartorio_index.jsp");
-				
-			}else if(pass == true && carregarTipo.equals("Empresa")) {
-				
-				//Implementar Depois
-				response.sendRedirect("perfis/empresa/empresa_index.jsp");
+			}else if(pass == true && carregarTipo.equals("empresa")) {
+				HttpSession session=request.getSession();  
+		        session.setAttribute("documento", logar.getDocumento());  
+				response.sendRedirect("perfil/empresa/index.jsp");
 				
 			}else {
 				System.out.println("Senha Invalida");

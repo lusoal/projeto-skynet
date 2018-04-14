@@ -57,7 +57,7 @@ public class ManterPublicoController extends HttpServlet {
 			
 			PublicoService service = new PublicoService();
 	
-			service.deletarPublico(publico);
+			service.deletarPublico(publico.getDocumento());
 			response.sendRedirect("index.html");
 		}
 	

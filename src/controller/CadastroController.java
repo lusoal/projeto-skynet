@@ -47,20 +47,33 @@ public class CadastroController extends HttpServlet {
 		//implementar frontend retornar documento e tipo ja definido
 		}else if(action.equals("/CadastrarUsuario")) {
 			CadastroService service = new CadastroService();
+			PublicoService serviceP = new PublicoService();
 			
 			String pDocumento = request.getParameter("documento");
 			String pNome = request.getParameter("nome");
 			String pTipo = request.getParameter("tipo");
+			String pEmail = request.getParameter("email");
 			String pEndereco = request.getParameter("endereco");
-			String pTelefone = request.getParameter("telefone");
-			String pDocPrinc = request.getParameter("doc_cont");
-			String pDocPrincNome = request.getParameter("doc_nome");
-			String pDocPrincEmail = request.getParameter("doc_email");
+			String pTelefoneFixo = request.getParameter("telefone_fixo");
+			String pTelefoneCelular = request.getParameter("telefone_celular");
+			String pContPrincNome = request.getParameter("cont_nome");
+			String pContPrincDoc = request.getParameter("cont_doc");
+			String pContPrincEmail = request.getParameter("cont_email");
+			String pSite = request.getParameter("site");
+			String pData = request.getParameter("data");
 			String pSenha = request.getParameter("senha");
 			
-			//Cadastros cad = new Cadastros(Integer.parseInt(pDocumento),pNome,pEndereco,Integer.parseInt(pTelefone),Integer.parseInt(pDocPrinc),pDocPrincNome,pDocPrincEmail, pSenha, pTipo);
+			Cadastros cad = new Cadastros(Long.parseLong(pDocumento), pNome, pTipo, pEmail, pEndereco, Long.parseLong(pTelefoneFixo), 
+					Long.parseLong(pTelefoneCelular), pContPrincNome, Long.parseLong(pContPrincDoc), pContPrincEmail, pSenha, pSite, pData );
+			
 			//adicionar cadastro
-			//service.Incluir(cad);
+			try {
+				service.Incluir(cad);
+				serviceP.deletarPublico(cad.getDocumento());
+			}catch(Exception e) {
+				System.out.println("Erro "+ e);
+			}
+			
 			HttpSession session = request.getSession();
 			session.removeAttribute("documento");
 			session.invalidate();
