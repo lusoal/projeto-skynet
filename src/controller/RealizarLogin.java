@@ -37,11 +37,8 @@ public class RealizarLogin extends HttpServlet {
 			String carregarTipo = service.selectTipo(logar);
 			
 			if(pass == true && carregarTipo.equals("administrador")) {
-				PublicoService serv = new PublicoService();
-				ArrayList<Publico> p = serv.retornaTodoPublico();
 				HttpSession session=request.getSession();  
 		        session.setAttribute("documento", pDocumento);
-		        session.setAttribute("arrayPublico", p);
 				response.sendRedirect("perfil/administrador/index.jsp");
 				
 			}else if(pass == true && carregarTipo.equals("cartorio")) {

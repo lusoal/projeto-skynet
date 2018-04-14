@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico", "/AlterarPublico"})
+@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico", "/AlterarPublico", "/RetornarPublico"})
 public class ManterPublicoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,6 +22,14 @@ public class ManterPublicoController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();	
+		
+		if(action.equals("/RetornarPublico")) {
+			PublicoService serv = new PublicoService();
+			ArrayList<Publico> p = serv.retornaTodoPublico();
+			request.setAttribute("arrayPublico", p);
+			RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/StatusCadastros.jsp");
+			view.forward(request, response);
+		}
 		
 		if(action.equals("/CadastrarPublico")) {
 			String pDocumento = request.getParameter("documento");
@@ -74,7 +82,7 @@ public class ManterPublicoController extends HttpServlet {
 			
 			PublicoService service = new PublicoService();
 			service.alterarStatus(publico);
-			response.sendRedirect(request.getHeader("referer"));
+			response.sendRedirect("perfil/administrador/StatusCadastros.jsp");
 		}
 	
 	
