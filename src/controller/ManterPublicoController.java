@@ -82,7 +82,7 @@ public class ManterPublicoController extends HttpServlet {
 			
 			PublicoService service = new PublicoService();
 			service.alterarStatus(publico);
-			response.sendRedirect("perfil/administrador/StatusCadastros.jsp");
+			response.sendRedirect(request.getContextPath() + "/perfil/administrador/index.jsp");
 		}
 	
 	
