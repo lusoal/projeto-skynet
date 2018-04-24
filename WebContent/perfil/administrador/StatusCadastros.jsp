@@ -19,29 +19,43 @@
 	response.sendRedirect("../../index.html");
 }%>
 
-<div style="margin-top:7%" class="container">
+<div style="margin-top:3%" class="container">
+<center><h2>Cadastros Pendentes</h2></center>
+</br>
+</br>
+<form action="${pageContext.request.contextPath}/PublicoController.do" method="post">
+  <div class="row">
+  <div class="col-sm-2">
+  </div>
+    <div class="col-sm-6">
+    <input class="form-control" type="text" placeholder="Digite o nome do usuario" name="nome" aria-label="Search">
+    </div>
+    <div class="col-sm-2">
+    <button name="acao" value="retornarPublico" class="btn btn-outline-success btn-rounded" type="submit">Search</button>
+  	</div>
+  </div>
+ </form>
 
-						<table class="table table-hover">
-							<thead>
+</br>
+</br>
+						<table class="table table-striped">
+  						<thead>
 								<tr>
 									<th>Tipo</th>
 									<th>CNPJ</th>
 									<th>Razao social</th>
-									<th>Status</th>
+									<th>Aprovacao</th>
 								</tr>
 							</thead>
-							<tbody>
+  							<tbody>
 							<c:forEach var="publico" items="${arrayPublico}">
-								<form action="${pageContext.request.contextPath}/AlterarPublico" method="post">
+								<form action="${pageContext.request.contextPath}/PublicoController.do" method="post">
 									<tr>
 									<td><input type="text" name="tipo" value="${publico.tipo}"readonly></td>
 									<td><input type="text" name="documento" value="${publico.documento}"readonly></td>
 									<td><input type="text" name="nome" value="${publico.nome}" readonly></td>
-									<td><select class="form-control" name="status">
-									<option value="${publico.status}">${publico.status}</option>
-									<option value="true">true</option>
-									</select></td>
-									<td><button type="submit" class="btn btn-success btn-sm">Alterar</button></td>
+									<td><button type="submit" name="acao" value="alterarPublico" class="btn btn-success btn-sm">Aprovar</button>
+									<button type="submit" name="acao" value="removerPublico" class="btn btn-danger btn-sm">Remover</button></td>
 									</tr></form>
 
 								</c:forEach>

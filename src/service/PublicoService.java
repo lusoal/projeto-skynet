@@ -28,8 +28,16 @@ public class PublicoService {
 		dao.verificarPublico(publico);
 	}
 	
-	public ArrayList<Publico> retornaTodoPublico() {
-		return dao.RetornarPublico();
+	public ArrayList<Publico> retornaTodoPublico(String nome) {
+		String sqlSelect=null;
+		System.out.println(nome);
+		if(nome.isEmpty()) {
+			sqlSelect="SELECT * FROM precadastro where status != 1";
+		}else {
+			sqlSelect="SELECT * FROM precadastro where status != 1 AND nome like "+"'"+nome+"%'";
+		}
+		System.out.println(sqlSelect);
+		return dao.RetornarPublico(sqlSelect);
 	}
 	
 	public void alterarStatus(Publico pub) {

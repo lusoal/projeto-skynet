@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico", "/AlterarPublico", "/RetornarPublico"})
+//@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarPublico", "/RemoverPublico", "/AlterarPublico", "/RetornarPublico"})
+@WebServlet("/PublicoController.do")
 public class ManterPublicoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -21,17 +22,23 @@ public class ManterPublicoController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getServletPath();	
+		//String action = request.getServletPath();	
+		String action = request.getParameter("acao");
 		
-		if(action.equals("/RetornarPublico")) {
+		if(action.equals("retornarPublico")) {
+			String nome = request.getParameter("nome");
+			System.out.println();
+			if(nome == null) {
+				nome="";
+			}
 			PublicoService serv = new PublicoService();
-			ArrayList<Publico> p = serv.retornaTodoPublico();
+			ArrayList<Publico> p = serv.retornaTodoPublico(nome);
 			request.setAttribute("arrayPublico", p);
 			RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/StatusCadastros.jsp");
 			view.forward(request, response);
 		}
 		
-		if(action.equals("/CadastrarPublico")) {
+		if(action.equals("cadastrarPublico")) {
 			String pDocumento = request.getParameter("documento");
 			String pTipo = request.getParameter("tipo");
 			String pNome = request.getParameter("nome");
@@ -44,6 +51,7 @@ public class ManterPublicoController extends HttpServlet {
 				pService.InserirPublico(publico);
 				response.sendRedirect("index.html");
 			}else {
+				//Tratamento de erro no frontend
 				String erro;
 				if (testeCnpj == -1) {
 					erro = "Usuário ja cadastrado, o documento "+pDocumento + " já se encontra em nossa base de dados.";
@@ -57,29 +65,24 @@ public class ManterPublicoController extends HttpServlet {
 		
 		}
 		
-		if(action.equals("/RemoverPublico")) {
+		if(action.equals("removerPublico")) {
 			String pdocumento = request.getParameter("documento");
-			System.out.println(pdocumento);
-			pdocumento = pdocumento.replace("/", "");
-			Publico publico = new Publico();
-			publico.setDocumento(Integer.parseInt(pdocumento));
-			
-			PublicoService service = new PublicoService();
-	
-			service.deletarPublico(publico.getDocumento());
-			response.sendRedirect("index.html");
-		}
-		
-		if(action.equals("/AlterarPublico")) {
-			String pdocumento = request.getParameter("documento");
-			String pStatus = request.getParameter("status");
-			
-			System.out.println(pdocumento);
-			System.out.println(pStatus);
+			System.out.println(pdocumento+" vai ser deletado");
 			Publico publico = new Publico();
 			publico.setDocumento(Long.parseLong(pdocumento));
-			publico.setStatus(Boolean.parseBoolean(pStatus));
+			PublicoService service = new PublicoService();
+			service.deletarPublico(publico.getDocumento());
+			response.sendRedirect(request.getContextPath() + "/perfil/administrador/index.jsp");
+		}
+		
+		if(action.equals("alterarPublico")) {
+			String pdocumento = request.getParameter("documento");
 			
+			System.out.println(pdocumento);
+			
+			Publico publico = new Publico();
+			publico.setDocumento(Long.parseLong(pdocumento));
+			publico.setStatus(true);
 			PublicoService service = new PublicoService();
 			service.alterarStatus(publico);
 			response.sendRedirect(request.getContextPath() + "/perfil/administrador/index.jsp");

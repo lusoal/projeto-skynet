@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,22 +14,22 @@ import service.CadastroService;
 import model.Cadastros;
 import model.Publico;
 import service.PublicoService;
+import controller.Logout;
 
-/**
- * Servlet implementation class CadastroController
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/CadastrarUsuario", "/VerificarPreCadastro"})
+
+@WebServlet("/CadastroController.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getServletPath();
+		String pAcao = request.getParameter("acao");
 		
-		
+		//Verificar a duplicidade de criacao de servicePub
 		PublicoService servicePub = new PublicoService();
 		
-		if(action.equals("/VerificarPreCadastro")) {
+		if(pAcao.equals("verificarPre")) {
 			String pDocumento = request.getParameter("documento");
+			System.out.println(pDocumento);
 			Publico pub = new Publico();
 			pub.setDocumento(Long.parseLong(pDocumento));
 			servicePub.validarPublico(pub);
@@ -41,11 +43,12 @@ public class CadastroController extends HttpServlet {
 		        session.setAttribute("publico", pub);
 				response.sendRedirect("cadastro/cadastro.jsp");
 			}else {
+				//implementar mensagem de erro no pre cadastro
 				response.sendRedirect("index.html");
 			}
 		
 		//implementar frontend retornar documento e tipo ja definido
-		}else if(action.equals("/CadastrarUsuario")) {
+		}else if(pAcao.equals("cadastrarUsuario")) {
 			CadastroService service = new CadastroService();
 			PublicoService serviceP = new PublicoService();
 			
@@ -71,21 +74,35 @@ public class CadastroController extends HttpServlet {
 				service.Incluir(cad);
 				serviceP.deletarPublico(cad.getDocumento());
 			}catch(Exception e) {
+				//Implementar erro ao cadastrar o usuario
 				System.out.println("Erro "+ e);
 			}
 			
+			//Faz o Invalidate da sessao e retorna para o front
 			HttpSession session = request.getSession();
 			session.removeAttribute("documento");
 			session.invalidate();
 			response.sendRedirect("index.html");
+			//Informar usuario ja cadastrado na Index
 			
+		}else if(pAcao.equals("cancelarCadastro")) {
+			Logout logout = new Logout();
+			logout.doPost(request, response);
+		
+			
+		}else if(pAcao.equals("listarUsuario")) {
+			CadastroService service = new CadastroService();
+			String pDocumento = request.getParameter("documento");
+			Cadastros cad = new Cadastros();
+			cad.setDocumento(Long.parseLong(pDocumento));
+			service.selectUser(cad);
+			System.out.println("Selecionei o usuario "+pDocumento);
+			request.setAttribute("usuario", cad);
+			RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/alterarCadastro.jsp");
+			view.forward(request, response);
 		}
 	
-	
-	
-	
-	
-	
 	}
+	
 
 }

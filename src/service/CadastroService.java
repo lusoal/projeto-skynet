@@ -21,5 +21,9 @@ public class CadastroService {
 		public void Remover(Cadastros cad) {
 			dao.RemoverCadastro(cad);
 		}
+		
+		public void selectUser(Cadastros cad) {
+			dao.selectCadastro(cad);
+		}
 				
 }

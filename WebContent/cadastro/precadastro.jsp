@@ -105,7 +105,7 @@
     <br>
     <br>
     
-<form class="form-signin" action="${pageContext.request.contextPath}/CadastrarPublico" method="post">     
+<form class="form-signin" action="${pageContext.request.contextPath}/PublicoController.do" method="post">     
     <h1>Pre-cadastro</h1>
     <div class="container">
     <div id="color_23">
@@ -131,8 +131,7 @@
 								<option value="cartorio">Cartorio</option>
 								
 							</select> <br>
-							<button class="btn btn-md btn  btn-outline-success btn-block"
-								type="submit">Realizar!</button>
+							<button class="btn btn-md btn  btn-outline-success btn-block" name="acao" value="cadastrarPublico" type="submit">Realizar!</button>
 						</div>
 </div>
    

@@ -14,6 +14,7 @@ import model.Publico;
 import model.UsuarioAdicional;
 import service.UsuarioAdicionalService;
 
+//Implementar um url patter so e mudar no formulario pegando acao do botao
 @WebServlet(asyncSupported = true, urlPatterns = { "/AdicionarAdicional", "/ListarAdicionais"})
 public class UsuarioAdicionalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

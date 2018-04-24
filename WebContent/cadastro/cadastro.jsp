@@ -115,7 +115,7 @@
     <h1>Cadastro</h1>
     
     <div class ="containder-fluid">
-    <form action="${pageContext.request.contextPath}/CadastrarUsuario" method="post">
+    <form action="${pageContext.request.contextPath}/CadastroController.do" method="post">
     <div id="color_23">
         
     <div class="row">
@@ -186,18 +186,13 @@
 	</div>
 	</div>     
 <div id="actions" class="row">
-	<div class="col-sm-1">
-		<button type="submit" class="btn btn-primary">Salvar</button>
+	<div class="col-sm-6">
+		<button type="submit" name="acao" value="cadastrarUsuario" class="btn btn-primary">Salvar</button>
+		<button type="submit" name="acao" value="cancelarCadastro" class="btn btn-default">Cancelar</button>
 	</div>
 </div>
         </div>
         </form>
-        <div class="col-md-2" style="position:absolute; left: 10% ">
-	     <form action="${pageContext.request.contextPath}/Logout" method="post">
-			<button type="submit" class="btn btn-default">Cancelar</button>
-		</form>
-       </div>
-      
 	</div>
  <%} %>
     </body>

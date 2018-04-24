@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import connection.ConnectionFactory;
 import model.Cadastros;
+import model.Publico;
 
 public class ManterCadastrosDao {
 		public void Incluir(Cadastros cad) {
@@ -47,7 +48,7 @@ public class ManterCadastrosDao {
 		}
 
 		public void RemoverCadastro(Cadastros cad) {
-			String sqlDelete = "DELETE FROM cadastros WHERE documento = ?";
+			String sqlDelete = "DELETE FROM cadastro WHERE documento = ?";
 
 			try {
 				Connection conn = ConnectionFactory.realizarConexao();
@@ -59,8 +60,6 @@ public class ManterCadastrosDao {
 			}
 		}
 
-		
-		
 		//Em desenvolvimento
 		public void atualizarCad(Cadastros cad) {
 		String sqlUpdate = "UPDATE adm SET nome=?, endereco=?, telefone=?, contatoDocumento=?, contatoNome=?, contatoEmail=? WHERE documento=?";
@@ -80,6 +79,39 @@ public class ManterCadastrosDao {
 			e.printStackTrace();
 		}
 	}
+		
+	public void selectCadastro(Cadastros cad) {
+			
+			String sqlSelect = "SELECT * from cadastro WHERE documento=?";
+			
+			try {
+				Connection conn = ConnectionFactory.realizarConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);
+				stm.setLong(1, cad.getDocumento());
+				ResultSet rs = stm.executeQuery();
+				if(rs.next()) {
+					cad.setNome(rs.getString("nome"));
+					cad.setEmail(rs.getString("email"));
+					cad.setEndereco(rs.getString("endereco"));
+					cad.setTelefoneFixo(rs.getLong("telefoneFixo"));
+					cad.setTelefoneCelular(rs.getLong("telefoneCelular"));
+					cad.setNomeContato(rs.getString("nomeContato"));
+					cad.setContatoDocumento(rs.getLong("documentoContato"));
+					cad.setContatoEmail(rs.getString("emailContato"));
+					cad.setSenha(rs.getString("senha"));
+					cad.setSite(rs.getString("site"));
+				}else {
+					cad.setDocumento(-1);
+				}
+				
+			}catch(SQLException e ) {
+				System.out.println(e);
+			}
+			
+			
+		}
+	
+		
    	
 
 }

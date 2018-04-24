@@ -72,7 +72,7 @@ setInterval(function(){
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#"><b>Já Realizei o Pré-Cadastro</b> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<form class="form-signin" action="VerificarPreCadastro" method="post">
+							<form class="form-signin" action="CadastroController.do" method="post">
 								<h6 class="form-signin-heading" align="center">Insira seu
 									Documento</h6>
 
@@ -80,8 +80,7 @@ setInterval(function(){
 								</label> <input name="documento" class="form-control"
 									placeholder="Digite seu CPF" required autofocus>
 
-								<button class="btn btn-sm btn btn-success btn-block"
-									type="submit">Cadastrar</button>
+								<button class="btn btn-sm btn btn-success btn-block" name="acao" value="verificarPre" type="submit">Cadastrar</button>
 
 							</form>
 

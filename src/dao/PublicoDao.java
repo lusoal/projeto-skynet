@@ -97,9 +97,9 @@ public class PublicoDao {
 	}
 	
 	
-	public ArrayList<Publico> RetornarPublico() {
+	public ArrayList<Publico> RetornarPublico(String sqlSelect) {
 
-		String sqlSelect = "SELECT * FROM precadastro where status != 1";
+		//String sqlSelect = "SELECT * FROM precadastro where status != 1";
 		ArrayList<Publico> p = new ArrayList<Publico>();
 		
 		try {
