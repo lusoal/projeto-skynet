@@ -24,7 +24,7 @@ public class ManterPublicoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//String action = request.getServletPath();	
 		String action = request.getParameter("acao");
-		
+		System.out.println(action);
 		if(action.equals("retornarPublico")) {
 			String nome = request.getParameter("nome");
 			System.out.println();

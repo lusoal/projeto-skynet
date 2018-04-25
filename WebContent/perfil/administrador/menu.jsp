@@ -8,9 +8,10 @@
     <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/PublicoController.do" method="post">
       <button class="btn nav-link" name="acao" value="retornarPublico" type=submit>Cadastros Pendentes</button>
       </form>
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/TermosEmpresa" method="post">
-      <button class="btn nav-link" type=submit>Termos Empresa</button>
-      </form>
+   <div style="margin-right: 5%">
+     <a href="${pageContext.request.contextPath}/perfil/administrador/termosEmpresa.jsp"><button class="btn nav-link">Termos Empresa</button></a>
+   </div>
+      
    <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/TermosCartorio" method="post">
       <button class="btn nav-link" type=submit>Termos Cartorio</button>
       </form>
