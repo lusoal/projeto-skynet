@@ -2,7 +2,10 @@ package controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -33,22 +36,47 @@ public class ArquivoController extends HttpServlet {
 			String pNome = request.getParameter("nome");
 			String pDocumento = request.getParameter("idAdm");
 			Part filePart = request.getPart("arquivo");
-		
+			
 			//transformar file em array de bytes
-			InputStream filecontent = filePart.getInputStream();
-			byte[] file = IOUtils.toByteArray(filecontent);
+			//InputStream filecontent = filePart.getInputStream();
+			//byte[] file = IOUtils.toByteArray(filecontent);
 			
 			Arquivos arquivo = new Arquivos();
 			arquivo.setNome(pNome);
 			arquivo.setDocumento(Long.parseLong(pDocumento));
 			
 			try {
-			ArquivoService service = new ArquivoService();
-			boolean retorno =service.inserirArquivoDownload(arquivo, file);
-			System.out.println(retorno);
-			
+				ArquivoService service = new ArquivoService();
+				boolean retorno =service.inserirArquivoDownload(arquivo, filePart);
+				System.out.println(retorno);
 			}catch(Exception e) {
 				System.out.println(e);
+			}
+		
+		}if(pAcao.equals("listarTermosAdminEmpresa")) {
+			String tipo = "Admin";
+			String perfil="Empresa";
+			ArquivoService service = new ArquivoService();
+			try {
+				ArrayList<Arquivos> arquivos = service.listarArquivosDownload(tipo, perfil);
+				request.setAttribute("arquivo", arquivos);
+				RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/termosEmpresa.jsp");
+				view.forward(request, response);
+			} catch (SQLException e) {
+				System.out.println("erro "+e);
+			}
+			
+		}if(pAcao.equals("listarTermosAdminCartorio")) {
+			String tipo = "Admin";
+			String perfil="Cartorio";
+			ArquivoService service = new ArquivoService();
+			try {
+				ArrayList<Arquivos> arquivos = service.listarArquivosDownload(tipo, perfil);
+				request.setAttribute("arquivo", arquivos);
+				RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/termosCartorio.jsp");
+				view.forward(request, response);
+			} catch (SQLException e) {
+				System.out.println("erro "+e);
 			}
 		}
 		

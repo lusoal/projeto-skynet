@@ -21,7 +21,7 @@
 	<form action="${pageContext.request.contextPath}/ArquivoController.do" enctype='multipart/form-data' method="post">
 	<input type="file" name="arquivo">
 	<input type="hidden" name="idAdm" value="${documento}">
-	<input type="hidden" name="nome" value="termo_empresa"> 
+	<input type="hidden" name="nome" value="termo_cartorio"> 
 	<button type="submit" name="acao" value="uploadTermosAdmin" class="btn btn-success btn-sm">Adicionar</button>
 	</form>
 	

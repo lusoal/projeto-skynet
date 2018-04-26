@@ -1,21 +1,33 @@
 package model;
 
+
+
 public class Arquivos {
 
 	private long id;
 	private long documento;
 	private String nome;
+	private String data;
 	
-	public Arquivos(long id, long documento, String nome) {
+	public Arquivos(long id, long documento, String nome, String data) {
 		this.id = id;
 		this.documento = documento;
 		this.nome = nome;
+		this.data=data;
 	}
 	
 	public Arquivos() {
 		
 	}
 	
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
 	public long getId() {
 		return id;
 	}
