@@ -16,15 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PublicoController.do")
 public class ManterPublicoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String action = request.getServletPath();	
 		String action = request.getParameter("acao");
-		System.out.println(action);
+
 		if(action.equals("retornarPublico")) {
 			String nome = request.getParameter("nome");
 			System.out.println();

@@ -49,6 +49,7 @@ public class ArquivoController extends HttpServlet {
 				ArquivoService service = new ArquivoService();
 				boolean retorno =service.inserirArquivoDownload(arquivo, filePart);
 				System.out.println(retorno);
+				response.sendRedirect("perfil/administrador/index.jsp");
 			}catch(Exception e) {
 				System.out.println(e);
 			}

@@ -62,18 +62,22 @@ public class ManterCadastrosDao {
 
 		//Em desenvolvimento
 		public void atualizarCad(Cadastros cad) {
-		String sqlUpdate = "UPDATE adm SET nome=?, endereco=?, telefone=?, contatoDocumento=?, contatoNome=?, contatoEmail=? WHERE documento=?";
+		String sqlUpdate = "UPDATE cadastro SET nome=?, email=?, endereco=?, telefoneFixo=?, telefoneCelular=?, nomeContato=?, documentoContato=?, emailContato=?, senha=?, site=? WHERE documento=?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.realizarConexao();
-				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setLong(1, cad.getDocumento());
-			stm.setString(2, cad.getNome());
+			PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+			stm.setString(1, cad.getNome());
+			stm.setString(2, cad.getEmail());
 			stm.setString(3, cad.getEndereco());
-			stm.setLong(4, cad.getTelefoneCelular());
-			stm.setLong(5, cad.getContatoDocumento());
+			stm.setLong(4, cad.getTelefoneFixo());
+			stm.setLong(5, cad.getTelefoneCelular());
 			stm.setString(6, cad.getNomeContato());
-			stm.setString(7, cad.getContatoEmail());
-			stm.setString(8, cad.getSenha());
+			stm.setLong(7, cad.getContatoDocumento());
+			stm.setString(8, cad.getContatoEmail());
+			stm.setString(9, cad.getSenha());
+			stm.setString(10, cad.getSite());
+			
+			stm.setLong(11, cad.getDocumento());
 			stm.execute();
 		} catch (Exception e) {
 			e.printStackTrace();

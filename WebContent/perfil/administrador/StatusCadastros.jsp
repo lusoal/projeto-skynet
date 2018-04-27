@@ -23,7 +23,7 @@
 <center><h2>Cadastros Pendentes</h2></center>
 </br>
 </br>
-<form action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
+<form action="${pageContext.request.contextPath}/PublicoController.do" method="post">
   <div class="row">
   <div class="col-sm-2">
   </div>

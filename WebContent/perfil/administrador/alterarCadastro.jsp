@@ -10,6 +10,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <title>Alterar Cadastro</title>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("senha");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
 </head>
 <body>
 <c:import url="menu.jsp"/>
@@ -17,7 +29,7 @@
 	response.sendRedirect("../../index.html");
 }%>
 <div class ="containder-fluid" style="padding:5%">
-    <form action="${pageContext.request.contextPath}/CadastroController.do" method="post">
+    <form  method="post" action="${pageContext.request.contextPath}/CadastroController.do" id="formAlterar">
     <div id="color_23">
         
     <div class="row">
@@ -29,6 +41,9 @@
 	<div class="form-group col-md-4">
 		<label for="name">Email</label> <input type="text" class="form-control" name="email" value="${usuario.email}">
 	</div>
+	<input type="hidden" name="documento" value="${documento}">
+	<input type="hidden" name="tipo" value="Administrador">
+	
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
 			class="form-control" name="telefone_fixo" value="${usuario.telefoneFixo}">
@@ -71,11 +86,12 @@
 	</div>
 	<div class="form-group col-md-3">
 		<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha" value="${usuario.senha}">
+		<input type="checkbox" onclick="myFunction()"> Mostrar Senha
 	</div>
 	</div>     
 <div id="actions" class="row">
 	<div class="col-sm-6">
-		<button type="submit" name="acao" value="updateUser" class="btn btn-primary">Alterar</button>
+		<button name="acao" type="submit" value="alterarCadastro" class="btn btn-primary" id="alterar">Alterar</button>
 	</div>
 </div>
         </div>

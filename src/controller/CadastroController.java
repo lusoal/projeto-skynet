@@ -20,7 +20,20 @@ import controller.Logout;
 @WebServlet("/CadastroController.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	public void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CadastroService service = new CadastroService();
+		String pDocumento = request.getParameter("documento");
+		Cadastros cad = new Cadastros();
+		cad.setDocumento(Long.parseLong(pDocumento));
+		service.selectUser(cad);
+		System.out.println("Selecionei o usuario "+pDocumento);
+		request.setAttribute("usuario", cad);
+		RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/alterarCadastro.jsp");
+		view.forward(request, response);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pAcao = request.getParameter("acao");
 		
@@ -47,7 +60,6 @@ public class CadastroController extends HttpServlet {
 				response.sendRedirect("index.html");
 			}
 		
-		//implementar frontend retornar documento e tipo ja definido
 		}else if(pAcao.equals("cadastrarUsuario")) {
 			CadastroService service = new CadastroService();
 			PublicoService serviceP = new PublicoService();
@@ -91,15 +103,40 @@ public class CadastroController extends HttpServlet {
 		
 			
 		}else if(pAcao.equals("listarUsuario")) {
-			CadastroService service = new CadastroService();
+			listarUsuarios(request, response);
+		
+		}else if(pAcao.equals("alterarCadastro")) {
+			//tipo e necessario para saber para onde sera feito o redirect
+			String pTipo = request.getParameter("tipo");
+			
 			String pDocumento = request.getParameter("documento");
-			Cadastros cad = new Cadastros();
-			cad.setDocumento(Long.parseLong(pDocumento));
-			service.selectUser(cad);
-			System.out.println("Selecionei o usuario "+pDocumento);
-			request.setAttribute("usuario", cad);
-			RequestDispatcher view = request.getRequestDispatcher("perfil/administrador/alterarCadastro.jsp");
-			view.forward(request, response);
+			String pNome = request.getParameter("nome");
+			
+			String pEmail = request.getParameter("email");
+			String pEndereco = request.getParameter("endereco");
+			String pTelefoneFixo = request.getParameter("telefone_fixo");
+			String pTelefoneCelular = request.getParameter("telefone_celular");
+			String pContPrincNome = request.getParameter("cont_nome");
+			String pContPrincDoc = request.getParameter("cont_doc");
+			String pContPrincEmail = request.getParameter("cont_email");
+			String pSite = request.getParameter("site");
+			
+			String pSenha = request.getParameter("senha");
+			
+			CadastroService service = new CadastroService();
+			Cadastros cad = new Cadastros(Long.parseLong(pDocumento), pNome, null, pEmail, pEndereco, Long.parseLong(pTelefoneFixo), 
+					Long.parseLong(pTelefoneCelular), pContPrincNome, Long.parseLong(pContPrincDoc), pContPrincEmail, pSenha, pSite, null );
+			try {
+				//verificar possibilidade de enviar uma mensagem com cadastro alterado
+				service.alterarCadastro(cad);
+				if(pTipo.equals("Administrador")) {
+					listarUsuarios(request, response);
+				}
+			}catch(Exception e) {
+				System.out.println("Erro atualizar cadastro");
+			}
+			
+			
 		}
 	
 	}

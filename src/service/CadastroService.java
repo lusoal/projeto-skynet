@@ -25,5 +25,9 @@ public class CadastroService {
 		public void selectUser(Cadastros cad) {
 			dao.selectCadastro(cad);
 		}
+		
+		public void alterarCadastro(Cadastros cad) {
+			dao.atualizarCad(cad);
+		}
 				
 }
