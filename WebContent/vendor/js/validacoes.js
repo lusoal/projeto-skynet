@@ -59,8 +59,18 @@ $('#cpfcnpj3').mask('000.000.000-000', options);
 });
 
 $(document).ready(function(){
-  $('#date').mask('11/11/1111');
-  $('#phone').mask('9999-9999');
-  $('#phone_with_ddd').mask('(99) 99999-9999');
+
+  $('#phone').mask('(99)9999-9999');
+  $('#cellphone').mask('(99) 99999-9999');
+
+});
+
+$(document).ready(function() {
+
+     // set an element
+     $("#date").val( moment().format('dd,mm, YYYY') );
+
+     // set a variable
+     var today = moment().format('dd,mm, YYYY');
 
 });
