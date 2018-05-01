@@ -124,19 +124,19 @@
 																							<div class="row">
 																								<br>
 																									<div class="form-group col-md-4">
-																										<label for="name">Nome / Razao Social</label> <input type="text"
+																										<label for="name">Nome / Razao Social</label> <input  readonly type="text"
 																										class="form-control" name="nome" value="<%= publico.getNome() %>">
 																									</div>
 																									<div class="form-group col-md-3">
-																										<label for="name">Email</label> <input type="text"
+																										<label for="name">Email</label> <input readonly type="text"
 																										class="form-control" name="email">
 																									</div>
 																									<div class="form-group col-md-3">
-																										<label for="campo2">CNPJ / CPF</label> <input type="text"
+																										<label for="campo2">CNPJ / CPF</label> <input  readonly type="text"
 																										class="form-control" value="<%= publico.getDocumento() %>" name="documento">
 																									</div>
 																									<div class="form-group col-md-2">
-																										<label for="campo3">Tipo</label> <input type="text"
+																										<label for="campo3">Tipo</label> <input readonly type="text"
 																										class="form-control" value="<%= publico.getTipo() %>" name="tipo">
 																									</div>
 																								</div>
