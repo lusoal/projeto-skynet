@@ -42,7 +42,10 @@ public class CadastroController extends HttpServlet {
 		
 		if(pAcao.equals("verificarPre")) {
 			String pDocumento = request.getParameter("documento");
-			System.out.println(pDocumento);
+			pDocumento = pDocumento.replace(".", "");
+			pDocumento = pDocumento.replace("-", "");
+			pDocumento = pDocumento.replace("/", "");
+			
 			Publico pub = new Publico();
 			pub.setDocumento(Long.parseLong(pDocumento));
 			servicePub.validarPublico(pub);

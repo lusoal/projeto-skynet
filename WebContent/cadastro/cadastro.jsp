@@ -129,7 +129,7 @@
 																									</div>
 																									<div class="form-group col-md-3">
 																										<label for="name">Email</label> <input readonly type="text"
-																										class="form-control" name="email">
+																										class="form-control" name="email" value="<%= publico.getEmail() %>" >
 																									</div>
 																									<div class="form-group col-md-3">
 																										<label for="campo2">CNPJ / CPF</label> <input  readonly type="text"

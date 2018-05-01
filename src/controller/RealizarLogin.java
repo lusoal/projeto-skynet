@@ -24,6 +24,12 @@ public class RealizarLogin extends HttpServlet {
 		String pDocumento = request.getParameter("documento");
 		String psenha = request.getParameter("senha");
 		
+		 pDocumento = pDocumento.replace(".", "");
+		 pDocumento = pDocumento.replace("-", "");
+		 pDocumento = pDocumento.replace("/", "");
+		
+		 System.out.println(pDocumento);
+		 
 		Login logar = new Login(Long.parseLong(pDocumento),psenha);
 		LoginService service = new LoginService();
 		

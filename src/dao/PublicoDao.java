@@ -75,7 +75,7 @@ public class PublicoDao {
 	
 	//Verificar opcao de enviar objeto publico ao inves de um array
 	public void verificarPublico(Publico pub) {
-		String sqlDelete = "SELECT status, nome, tipo FROM precadastro WHERE documento = ?";
+		String sqlDelete = "SELECT status, nome, tipo, email FROM precadastro WHERE documento = ?";
 		pub.setStatus(false);
 		try {
 			Connection conn = ConnectionFactory.realizarConexao();
@@ -86,6 +86,7 @@ public class PublicoDao {
 				int status = rs.getInt("status");
 				pub.setNome(rs.getString("nome"));
 				pub.setTipo(rs.getString("tipo"));
+				pub.setEmail(rs.getString("email"));
 				
 				if(status == 1) {
 					System.out.println("status do banco 1");
