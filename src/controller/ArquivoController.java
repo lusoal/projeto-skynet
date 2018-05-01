@@ -76,6 +76,8 @@ public class ArquivoController extends HttpServlet {
 					System.out.println(retorno);
 					if(pTipo.equals("cartorio")) {
 						response.sendRedirect("perfil/cartorio/index.jsp");
+					}else if(pTipo.equals("empresa")) {
+						response.sendRedirect("perfil/empresa/index.jsp");
 					}
 				}catch(Exception e) {
 					System.out.println(e);
@@ -120,8 +122,19 @@ public class ArquivoController extends HttpServlet {
 				System.out.println("erro "+e);
 			}
 			
+		}if(pAcao.equals("listarTermosEmpresa")) {
+			String tipo = "Admin";
+			String perfil="Empresa";
+			ArquivoService service = new ArquivoService();
+			try {
+				ArrayList<Arquivos> arquivos = service.listarArquivosDownload(tipo, perfil);
+				request.setAttribute("arquivo", arquivos);
+				RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/termosEmpresa.jsp");
+				view.forward(request, response);
+			} catch (SQLException e) {
+				System.out.println("erro "+e);
+			}
 			
-	
 		}if(pAcao.equals("listarTermos")) {
 			String tipo = request.getParameter("tipo");
 			String documento = request.getParameter("documento");

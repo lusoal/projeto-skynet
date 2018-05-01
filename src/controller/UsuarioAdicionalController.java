@@ -84,6 +84,9 @@ public class UsuarioAdicionalController extends HttpServlet {
 			if(pTipo.equals("cartorio")) {
 				RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/listaUsuarios.jsp");
 				view.forward(request, response);
+			}if(pTipo.equals("empresa")) {
+				RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/listaUsuarios.jsp");
+				view.forward(request, response);
 			}
 		
 		}
