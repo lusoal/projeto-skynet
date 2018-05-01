@@ -15,7 +15,8 @@ import model.UsuarioAdicional;
 import service.UsuarioAdicionalService;
 
 //Implementar um url patter so e mudar no formulario pegando acao do botao
-@WebServlet(asyncSupported = true, urlPatterns = { "/AdicionarAdicional", "/ListarAdicionais"})
+//@WebServlet(asyncSupported = true, urlPatterns = { "/AdicionarAdicional", "/ListarAdicionais"})
+@WebServlet(asyncSupported = true, urlPatterns = { "/usuarioAdicionalController.do"})
 public class UsuarioAdicionalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,9 +27,10 @@ public class UsuarioAdicionalController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String action = request.getServletPath();
+		String action = request.getParameter("acao");
+		System.out.println(action);
 		
-		if(action.equals("/AdicionarAdicional")) {
+		if(action.equals("AdicionarAdicional")) {
 			String pDocumento = request.getParameter("documento");
 			String pNome = request.getParameter("nome");
 			String pEmail = request.getParameter("email");
@@ -50,7 +52,10 @@ public class UsuarioAdicionalController extends HttpServlet {
 			}
 		
 			
-		if(action.equals("/ListarAdicionais")) {
+		if(action.equals("listarAdicional")) {
+			
+			String pTipo = request.getParameter("tipo");
+			
 			String pDocumentoPrincipal = request.getParameter("documentoPrincipal");
 			UsuarioAdicional adicional = new UsuarioAdicional();
 			
@@ -59,9 +64,13 @@ public class UsuarioAdicionalController extends HttpServlet {
 			
 			ArrayList<UsuarioAdicional> ua = service.listarUsuarios(adicional);
 			request.setAttribute("arrayAdicional", ua);
-			RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/listaUsuarios.jsp");
-			view.forward(request, response);
 			
+			//alterar para onde vai enviar, cartorio ou empresa
+			if(pTipo.equals("cartorio")) {
+				RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/listaUsuarios.jsp");
+				view.forward(request, response);
+			}
+		
 		}
 	
 	}
