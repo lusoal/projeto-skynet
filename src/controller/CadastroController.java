@@ -46,6 +46,18 @@ public class CadastroController extends HttpServlet {
 		view.forward(request, response);
 	}
 	
+	public void listarEmpresa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CadastroService service = new CadastroService();
+		String pDocumento = request.getParameter("documento");
+		Cadastros cad = new Cadastros();
+		cad.setDocumento(Long.parseLong(pDocumento));
+		service.selectUser(cad);
+		System.out.println("Selecionei o usuario "+pDocumento);
+		request.setAttribute("usuario", cad);
+		RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/alterarCadastro.jsp");
+		view.forward(request, response);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pAcao = request.getParameter("acao");
 		
@@ -131,7 +143,8 @@ public class CadastroController extends HttpServlet {
 			String pTipo = request.getParameter("tipo");
 			if(pTipo.equals("administrador")) listarUsuarios(request, response);
 			if(pTipo.equals("cartorio")) listarCartorio(request, response);
-		
+			if(pTipo.equals("empresa")) listarCartorio(request, response);
+
 		}else if(pAcao.equals("alterarCadastro")) {
 			//tipo e necessario para saber para onde sera feito o redirect
 			String pTipo = request.getParameter("tipo");
@@ -159,6 +172,8 @@ public class CadastroController extends HttpServlet {
 				if(pTipo.equals("Administrador")) {
 					listarUsuarios(request, response);
 				}else if(pTipo.equals("cartorio")) {
+					listarCartorio(request, response);
+				}else if(pTipo.equals("empresa")) {
 					listarCartorio(request, response);
 				}
 			}catch(Exception e) {
