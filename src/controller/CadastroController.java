@@ -34,6 +34,18 @@ public class CadastroController extends HttpServlet {
 		view.forward(request, response);
 	}
 	
+	public void listarCartorio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CadastroService service = new CadastroService();
+		String pDocumento = request.getParameter("documento");
+		Cadastros cad = new Cadastros();
+		cad.setDocumento(Long.parseLong(pDocumento));
+		service.selectUser(cad);
+		System.out.println("Selecionei o usuario "+pDocumento);
+		request.setAttribute("usuario", cad);
+		RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/alterarCadastro.jsp");
+		view.forward(request, response);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pAcao = request.getParameter("acao");
 		
@@ -114,7 +126,7 @@ public class CadastroController extends HttpServlet {
 			
 			String pDocumento = request.getParameter("documento");
 			String pNome = request.getParameter("nome");
-			
+			System.out.println(pNome);
 			String pEmail = request.getParameter("email");
 			String pEndereco = request.getParameter("endereco");
 			String pTelefoneFixo = request.getParameter("telefone_fixo");
@@ -134,6 +146,8 @@ public class CadastroController extends HttpServlet {
 				service.alterarCadastro(cad);
 				if(pTipo.equals("Administrador")) {
 					listarUsuarios(request, response);
+				}else if(pTipo.equals("Cartorio")) {
+					listarCartorio(request, response);
 				}
 			}catch(Exception e) {
 				System.out.println("Erro atualizar cadastro");

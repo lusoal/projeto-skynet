@@ -17,7 +17,7 @@ public class ConnectionFactory {
 	//Verificar se dessa forma funciona se nao adicionar o Trows
 	public static Connection realizarConexao(){
 		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/skynet?user=root&password=root");
+			return DriverManager.getConnection("jdbc:mysql://localhost/skynet?user=root&password=@mcasquel123");
 		}catch(SQLException e) {
 				System.out.println(e);
 				
