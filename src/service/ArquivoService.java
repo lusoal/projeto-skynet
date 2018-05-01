@@ -28,10 +28,22 @@ public class ArquivoService {
 		return retorno;	
 	}
 	
+	public boolean inserirArquivoUpload(Arquivos arquivo, Part filePart) throws IOException {
+		//transformar file em array de bytes
+		InputStream filecontent = filePart.getInputStream();
+		byte[] file = IOUtils.toByteArray(filecontent);
+		boolean retorno = dao.inserirArquivoUpload(arquivo, file);
+		return retorno;	
+	}
+	
 	public ArrayList<Arquivos> listarArquivosDownload(String tipo, String perfil) throws SQLException{
 		ArrayList<Arquivos> arquivos = dao.listarArquivosDownloads(tipo, perfil);
 		return arquivos;
 		
+	}
+	public ArrayList<Arquivos> listarArquivosUpload(Arquivos arquivo) throws SQLException{
+		ArrayList<Arquivos> arquivos = dao.listarArquivosUpload(arquivo);
+		return arquivos;	
 	}
 
 }

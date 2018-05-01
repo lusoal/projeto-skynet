@@ -38,6 +38,10 @@ public class ManterPublicoController extends HttpServlet {
 		
 		if(action.equals("cadastrarPublico")) {
 			String pDocumento = request.getParameter("documento");
+			pDocumento = pDocumento.replace(".", "");
+			pDocumento = pDocumento.replace("-", "");
+			pDocumento = pDocumento.replace("/", "");
+			
 			String pTipo = request.getParameter("tipo");
 			String pNome = request.getParameter("nome");
 			String pEmail = request.getParameter("email");

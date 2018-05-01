@@ -10,11 +10,13 @@
     <input type="hidden" name="tipo" value="cartorio">
       <button class="btn nav-link" type=submit name="acao" value="listarAdicional" >Usuario Adicional</button>
       </form>
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/DownloadTermos" method="post">
-      <button class="btn nav-link" type=submit>Download Termos</button>
+   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
+      <button class="btn nav-link" name="acao" value="listarTermosCartorio" type=submit>Download Termos</button>
       </form>
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/UploadTermos" method="post">
-      <button class="btn nav-link" type=submit>Upload Termos</button>
+   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
+       <input type="hidden" name="documento" value="${documento}">
+        <input type="hidden" name="tipo" value="cartorio">
+      <button class="btn nav-link" name="acao" value="listarTermos" type=submit>Upload Termos</button>
       </form>
      <li class="nav-item">
      <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/CadastroController.do" method="post">

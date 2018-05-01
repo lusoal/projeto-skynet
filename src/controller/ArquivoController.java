@@ -54,7 +54,34 @@ public class ArquivoController extends HttpServlet {
 				System.out.println(e);
 			}
 		
-		}if(pAcao.equals("listarTermosAdminEmpresa")) {
+		}if(pAcao.equals("uploadTermos")) {
+				//pegando parametros do frontend
+				String pNome = request.getParameter("nome");
+				String pDocumento = request.getParameter("documento");
+				Part filePart = request.getPart("arquivo");
+				
+				String pTipo = request.getParameter("tipo");
+				
+				//transformar file em array de bytes
+				//InputStream filecontent = filePart.getInputStream();
+				//byte[] file = IOUtils.toByteArray(filecontent);
+				
+				Arquivos arquivo = new Arquivos();
+				arquivo.setNome(pNome);
+				arquivo.setDocumento(Long.parseLong(pDocumento));
+				
+				try {
+					ArquivoService service = new ArquivoService();
+					boolean retorno =service.inserirArquivoUpload(arquivo, filePart);
+					System.out.println(retorno);
+					if(pTipo.equals("cartorio")) {
+						response.sendRedirect("perfil/cartorio/index.jsp");
+					}
+				}catch(Exception e) {
+					System.out.println(e);
+				}	
+			
+			}if(pAcao.equals("listarTermosAdminEmpresa")) {
 			String tipo = "Admin";
 			String perfil="Empresa";
 			ArquivoService service = new ArquivoService();
@@ -79,12 +106,48 @@ public class ArquivoController extends HttpServlet {
 			} catch (SQLException e) {
 				System.out.println("erro "+e);
 			}
+		
+		}if(pAcao.equals("listarTermosCartorio")) {
+			String tipo = "Admin";
+			String perfil="Cartorio";
+			ArquivoService service = new ArquivoService();
+			try {
+				ArrayList<Arquivos> arquivos = service.listarArquivosDownload(tipo, perfil);
+				request.setAttribute("arquivo", arquivos);
+				RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/termosCartorio.jsp");
+				view.forward(request, response);
+			} catch (SQLException e) {
+				System.out.println("erro "+e);
+			}
+			
+			
+	
+		}if(pAcao.equals("listarTermos")) {
+			String tipo = request.getParameter("tipo");
+			String documento = request.getParameter("documento");
+			Arquivos arquivo = new Arquivos();
+			
+			arquivo.setDocumento(Long.parseLong(documento));
+			ArquivoService service = new ArquivoService();
+			
+			try {
+				ArrayList<Arquivos> arquivos = service.listarArquivosUpload(arquivo);
+				request.setAttribute("arquivo", arquivos);
+				//implementar o tipo empresa
+				if(tipo.equals("cartorio")) {
+					RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/uploadTermos.jsp");
+					view.forward(request, response);
+				}else if(tipo.equals("empresa")) {
+					RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/uploadTermos.jsp");
+					view.forward(request, response);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
-		
-		
-		
-		
-		
 	}
 
 }
