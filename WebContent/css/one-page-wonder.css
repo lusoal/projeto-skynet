@@ -2,7 +2,7 @@
 
 body {
   padding-top: 54px;
-    
+
 }
 
 @media (min-width: 1000px) {
@@ -50,21 +50,21 @@ h1{
     margin-right: 2%;
 }
 #color_1{
-    
+
     background-color: white;
      margin-left: 8%;
     margin-right: 10%;
     margin-top: 8%;
-    
+
 }
 #color_23{
-    
+
     background-color: #DDDEDE;
     border-top: 2%;
      margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
-    
+
 }
 
 @media (min-width: 992px)
@@ -96,19 +96,19 @@ header.masthead>.overlay {
 
 .container{
   width: 80%;
-   
+
 }
 .cad{
     height:350px;
     background-color: white;
-    
+
 }
 
 .containder-fluid{
-    
+
     margin-bottom: auto;
-    
-    
+
+
 }
 
 
