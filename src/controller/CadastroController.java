@@ -143,7 +143,7 @@ public class CadastroController extends HttpServlet {
 			String pTipo = request.getParameter("tipo");
 			if(pTipo.equals("administrador")) listarUsuarios(request, response);
 			if(pTipo.equals("cartorio")) listarCartorio(request, response);
-			if(pTipo.equals("empresa")) listarCartorio(request, response);
+			if(pTipo.equals("empresa")) listarEmpresa(request, response);
 
 		}else if(pAcao.equals("alterarCadastro")) {
 			//tipo e necessario para saber para onde sera feito o redirect
@@ -174,7 +174,8 @@ public class CadastroController extends HttpServlet {
 				}else if(pTipo.equals("cartorio")) {
 					listarCartorio(request, response);
 				}else if(pTipo.equals("empresa")) {
-					listarCartorio(request, response);
+					System.out.println("Listar empresa");
+					listarEmpresa(request, response);
 				}
 			}catch(Exception e) {
 				System.out.println("Erro atualizar cadastro");

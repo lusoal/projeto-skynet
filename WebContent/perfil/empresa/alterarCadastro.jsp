@@ -42,7 +42,7 @@ function myFunction() {
 		<label for="name">Email</label> <input type="text" class="form-control" name="email" value="${usuario.email}">
 	</div>
 	<input type="hidden" name="documento" value="${documento}">
-	<input type="hidden" name="tipo" value="cartorio">
+	<input type="hidden" name="tipo" value="empresa">
 	
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
