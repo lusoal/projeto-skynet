@@ -85,7 +85,16 @@ public class CadastroController extends HttpServlet {
 			String pEmail = request.getParameter("email");
 			String pEndereco = request.getParameter("endereco");
 			String pTelefoneFixo = request.getParameter("telefone_fixo");
+			pTelefoneFixo = pTelefoneFixo.replace("(", "");
+			pTelefoneFixo = pTelefoneFixo.replace(")", "");
+			pTelefoneFixo = pTelefoneFixo.replace("-", "");
+			
 			String pTelefoneCelular = request.getParameter("telefone_celular");
+			pTelefoneCelular = pTelefoneCelular.replace("(", "");
+			pTelefoneCelular = pTelefoneCelular.replace(")", "");
+			pTelefoneCelular = pTelefoneCelular.replace("-", "");
+			pTelefoneCelular = pTelefoneCelular.replace(" ", "");
+		
 			String pContPrincNome = request.getParameter("cont_nome");
 			String pContPrincDoc = request.getParameter("cont_doc");
 			String pContPrincEmail = request.getParameter("cont_email");
