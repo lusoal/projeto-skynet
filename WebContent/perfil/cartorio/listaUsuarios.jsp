@@ -29,7 +29,8 @@ pageEncoding="UTF-8"%>
   	</div>
     <div class="col-sm-6">
     <input class="form-control" type="text" placeholder="Digite o nome do usuario" name="nome" aria-label="Search">
-    <input type="hidden" name="documento" value="${documento}">
+    <input type="hidden" name="documentoPrincipal" value="${documento}">
+    <input type="hidden" name="tipo" value="cartorio">
     </div>
     <div class="col-sm-2">
     <button name="acao" value="listarAdicional" class="btn btn-outline-success btn-rounded" type="submit">Search</button>

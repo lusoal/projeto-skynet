@@ -33,9 +33,9 @@ public class UsuarioAdicionalDao {
 	//realizar validacao se usuario ja existe na base de dados
 	
 	//passar documento principal vinculado ao usuario Adicional
-	public ArrayList<UsuarioAdicional> listarAdicional(UsuarioAdicional adicional){
-	String sqlSelect = "select documento, nome, email, perfil from usuarioAdicional where documentoPrincipal=?";
+	public ArrayList<UsuarioAdicional> listarAdicional(UsuarioAdicional adicional, String sqlSelect){
 	
+	// O select do SQL retorna do service
 	ArrayList<UsuarioAdicional> add = new ArrayList<UsuarioAdicional>();
 	
 	try {
