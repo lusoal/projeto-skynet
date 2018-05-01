@@ -68,9 +68,9 @@ $(document).ready(function(){
 $(document).ready(function() {
 
      // set an element
-     $("#date").val( moment().format('dd,mm, YYYY') );
+     $("#date").val( moment().format('YYYY +"/"+ MM +"/"+DD' );
 
      // set a variable
-     var today = moment().format('dd,mm, YYYY');
+     var today = moment().format('YYYY +"/"+ MM +"/"+DD');
 
 });
