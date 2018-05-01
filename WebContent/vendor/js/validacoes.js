@@ -64,13 +64,3 @@ $(document).ready(function(){
   $('#cellphone').mask('(99) 99999-9999');
 
 });
-
-$(document).ready(function() {
-
-     // set an element
-     $("#date").val( moment().format('YYYY, MM,DD' );
-
-     // set a variable
-     var today = moment().format('YYYY, MM,DD');
-
-});
