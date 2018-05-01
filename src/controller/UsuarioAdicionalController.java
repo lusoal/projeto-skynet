@@ -62,6 +62,7 @@ public class UsuarioAdicionalController extends HttpServlet {
 		if(action.equals("listarAdicional")) {
 			
 			String pTipo = request.getParameter("tipo");
+			String pNome = request.getParameter("nome");
 			
 			String pDocumentoPrincipal = request.getParameter("documentoPrincipal");
 			UsuarioAdicional adicional = new UsuarioAdicional();
@@ -79,6 +80,7 @@ public class UsuarioAdicionalController extends HttpServlet {
 			}
 		
 		}
+		
 	
 	}
 }

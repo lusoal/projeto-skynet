@@ -20,9 +20,24 @@ pageEncoding="UTF-8"%>
 	<% if(session.getAttribute("documento") == null) {
 		response.sendRedirect("../../index.html");
 	}%>
+	</br>
+	</br>
+	</br>
+	<form action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
+  	<div class="row">
+  	<div class="col-sm-2">
+  	</div>
+    <div class="col-sm-6">
+    <input class="form-control" type="text" placeholder="Digite o nome do usuario" name="nome" aria-label="Search">
+    <input type="hidden" name="documento" value="${documento}">
+    </div>
+    <div class="col-sm-2">
+    <button name="acao" value="listarAdicional" class="btn btn-outline-success btn-rounded" type="submit">Search</button>
+  	</div>
+  </div>
+ 	</form>
 
-
-	<div style="margin-top:7%" class="container">
+	<div style="margin-top:3%" class="container">
 
 		<div class="row mb-4">
 			<div class="col text-right">
