@@ -122,6 +122,9 @@
                                                       </div>
                                                     </div>
                                                     <div class="row">
+                                                      <div class="form-group col-md-1">
+                                                    </div>
+
                                                       <div class="form-group col-md-7">
                                                         <label for="name">Email</label> <input type="text"
                                                           class="form-control" name="email">
@@ -132,8 +135,7 @@
                                                         <option value="empresa">Empresa</option>
                                                         <option value="cartorio">Cartorio</option>
 
-                                                      <div class="form-group col-md-2">
-                                                      </div>
+
 
 
                                                       </select> <br>
