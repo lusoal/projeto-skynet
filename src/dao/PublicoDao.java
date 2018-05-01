@@ -12,7 +12,7 @@ import model.Publico;
 public class PublicoDao {
 	
 	public void IncluirPublico(Publico publico){
-		String sqlInsert = "INSERT INTO precadastro (documento, tipo, status, nome) VALUES(?, ?, ?, ?)";
+		String sqlInsert = "INSERT INTO precadastro (documento, tipo, status, nome, email) VALUES(?, ?, ?, ?, ?)";
 		//Iniciar Conexao com o banco
 		//Try para verificar se nao ocorre exeptions
 		try {
@@ -22,6 +22,7 @@ public class PublicoDao {
 			stm.setString(2, publico.getTipo());
 			stm.setBoolean(3, publico.getStatus());
 			stm.setString(4, publico.getNome());
+			stm.setString(5, publico.getEmail());
 			stm.execute();
 			//Essa parte e necessaria para poder inserir um valor no ID para mostrar no HTML gerado pelo Controller
 		}catch(SQLException e) {
@@ -113,6 +114,7 @@ public class PublicoDao {
 				pb.setTipo(rs.getString("tipo"));
 				pb.setStatus(rs.getBoolean("status"));
 				pb.setNome(rs.getString("nome"));
+				pb.setEmail(rs.getString("email"));
 				p.add(pb);
 			}
 		} catch (SQLException e) {

@@ -6,16 +6,26 @@ public class Publico {
 	private String tipo;
 	private boolean status;
 	private String nome;
+	private String email;
 
-	public Publico(long documento, String tipo, String nome) {
+	public Publico(long documento, String tipo, String nome, String email) {
 		this.documento = documento;
 		this.tipo = tipo;
 		status = false;
 		this.nome = nome;
+		this.email = email;
 	}
 	
 	public Publico() {
 		
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getNome() {

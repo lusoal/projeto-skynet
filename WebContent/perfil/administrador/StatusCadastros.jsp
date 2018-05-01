@@ -44,6 +44,7 @@
 									<th>Tipo</th>
 									<th>CNPJ</th>
 									<th>Razao social</th>
+									<th>Email</th>
 									<th>Aprovacao</th>
 								</tr>
 							</thead>
@@ -54,6 +55,7 @@
 									<td><input type="text" name="tipo" value="${publico.tipo}"readonly></td>
 									<td><input type="text" name="documento" value="${publico.documento}"readonly></td>
 									<td><input type="text" name="nome" value="${publico.nome}" readonly></td>
+									<td><input type="text" name="nome" value="${publico.email}" readonly></td>
 									<td><button type="submit" name="acao" value="alterarPublico" class="btn btn-success btn-sm">Aprovar</button>
 									<button type="submit" name="acao" value="removerPublico" class="btn btn-danger btn-sm">Remover</button></td>
 									</tr></form>

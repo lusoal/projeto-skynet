@@ -40,8 +40,9 @@ public class ManterPublicoController extends HttpServlet {
 			String pDocumento = request.getParameter("documento");
 			String pTipo = request.getParameter("tipo");
 			String pNome = request.getParameter("nome");
+			String pEmail = request.getParameter("email");
 			
-			Publico publico = new Publico(Long.parseLong(pDocumento),pTipo, pNome);
+			Publico publico = new Publico(Long.parseLong(pDocumento),pTipo, pNome, pEmail);
 			PublicoService pService = new PublicoService();
 			
 			long testeCnpj = pService.ValidarCnpj(publico);
