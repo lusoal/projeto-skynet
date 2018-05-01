@@ -19,8 +19,15 @@ public class UsuarioAdicionalService {
 		dao.incluirAdicional(adicional);
 	}
 	
-	public ArrayList<UsuarioAdicional> listarUsuarios(UsuarioAdicional adicional) {
-		return dao.listarAdicional(adicional);
+	public ArrayList<UsuarioAdicional> listarUsuarios(UsuarioAdicional adicional, String nome) {
+		String sqlSelect=null;
+		System.out.println(nome);
+		if(nome.isEmpty()) {
+			sqlSelect = "select documento, nome, email, perfil from usuarioAdicional where documentoPrincipal=?";
+		}else {
+			sqlSelect = "select documento, nome, email, perfil from usuarioAdicional where documentoPrincipal=? AND nome like "+"'"+nome+"%'";
+		}
+		return dao.listarAdicional(adicional, sqlSelect);
 	}
 }
 

@@ -15,7 +15,6 @@ import model.UsuarioAdicional;
 import service.UsuarioAdicionalService;
 
 //Implementar um url patter so e mudar no formulario pegando acao do botao
-//@WebServlet(asyncSupported = true, urlPatterns = { "/AdicionarAdicional", "/ListarAdicionais"})
 @WebServlet(asyncSupported = true, urlPatterns = { "/usuarioAdicionalController.do"})
 public class UsuarioAdicionalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -63,14 +62,22 @@ public class UsuarioAdicionalController extends HttpServlet {
 			
 			String pTipo = request.getParameter("tipo");
 			String pNome = request.getParameter("nome");
-			
 			String pDocumentoPrincipal = request.getParameter("documentoPrincipal");
+			
+			System.out.println(pNome);
+			
+			if(pNome == null) {
+				pNome="";
+			}
+	
+			
 			UsuarioAdicional adicional = new UsuarioAdicional();
 			
 			adicional.setDocumentoPrinc(Long.parseLong(pDocumentoPrincipal));
+			
 			UsuarioAdicionalService service = new UsuarioAdicionalService();
 			
-			ArrayList<UsuarioAdicional> ua = service.listarUsuarios(adicional);
+			ArrayList<UsuarioAdicional> ua = service.listarUsuarios(adicional, pNome);
 			request.setAttribute("arrayAdicional", ua);
 			
 			//alterar para onde vai enviar, cartorio ou empresa
