@@ -13,12 +13,6 @@ pageEncoding="UTF-8"%>
 
 
 	<script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
-	<script type="text/javascript" src="../../vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
-	<link rel="stylesheet" href="../../vendor/simple-line-icons/css/simple-line-icons.css">
-	<link href="css/one-page-wonder.css" rel="stylesheet">
-
-
-
 	<title>Usuarios Adicionais</title>
 </head>
 <body>
@@ -26,10 +20,6 @@ pageEncoding="UTF-8"%>
 	<% if(session.getAttribute("documento") == null) {
 		response.sendRedirect("../../index.html");
 	}%>
-
-
-
-
 
 
 	<div style="margin-top:7%" class="container">
@@ -50,7 +40,8 @@ pageEncoding="UTF-8"%>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" action="${pageContext.request.contextPath}/AdicionarAdicional" method="post">
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
+							<input type="hidden" name="tipo" value="cartorio">
 							<div class="form-group">
 								<label class="control-label col-sm-2">Documento</label>
 								<div class="col-sm-10">
@@ -86,7 +77,7 @@ pageEncoding="UTF-8"%>
 							<div class="form-group">
 								<div class="modal-footer">
 									<div class="col-sm-offset-2 col-sm-4">
-										<button type="submit" class="btn btn-success btn-sm-5">Cadastrar</button>
+										<button type="submit" name="acao" value="adicionarAdicional" class="btn btn-success btn-sm-5">Cadastrar</button>
 										<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 									</div>
 								</div>

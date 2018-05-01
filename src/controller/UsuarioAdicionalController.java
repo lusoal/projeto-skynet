@@ -30,7 +30,7 @@ public class UsuarioAdicionalController extends HttpServlet {
 		String action = request.getParameter("acao");
 		System.out.println(action);
 		
-		if(action.equals("AdicionarAdicional")) {
+		if(action.equals("adicionarAdicional")) {
 			String pDocumento = request.getParameter("documento");
 			String pNome = request.getParameter("nome");
 			String pEmail = request.getParameter("email");
@@ -38,13 +38,20 @@ public class UsuarioAdicionalController extends HttpServlet {
 			String pDocumentoPrincipal = request.getParameter("documentoPrincipal");
 			String pPerfil = request.getParameter("perfil");
 			
+			String pTipo = request.getParameter("tipo");
+			
 			UsuarioAdicional adicional = new UsuarioAdicional(pNome, Long.parseLong(pDocumento), 
 					Long.parseLong(pDocumentoPrincipal), pEmail, pSenha, pPerfil);
 			UsuarioAdicionalService service = new UsuarioAdicionalService();
 			
 			try {
 				service.adicionarUsuario(adicional);
-				response.sendRedirect(request.getContextPath() + "/perfil/cartorio/usuarioAdicional.jsp");
+				if(pTipo.equals("cartorio")) {
+					response.sendRedirect(request.getContextPath() + "/perfil/cartorio/index.jsp");
+				}else if (pTipo.equals("empresa")) {
+					response.sendRedirect(request.getContextPath() + "/perfil/empresa/index.jsp");
+				}
+				
 			}catch(Exception e) {
 				System.out.println("Erro Cadastro "+ e);
 				response.sendRedirect("index.html");

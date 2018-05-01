@@ -5,7 +5,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="perfil/cartorio/index.jsp">Cartorio</a>
     </li>
-    <form style="margin-right: 5%" action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
+    <form style="margin-right: 5%; margin-left:2%" action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
     <input type="hidden" name="documentoPrincipal" value="${documento}">
     <input type="hidden" name="tipo" value="cartorio">
       <button class="btn nav-link" type=submit name="acao" value="listarAdicional" >Usuario Adicional</button>
