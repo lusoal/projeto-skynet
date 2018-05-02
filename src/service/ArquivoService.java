@@ -45,5 +45,9 @@ public class ArquivoService {
 		ArrayList<Arquivos> arquivos = dao.listarArquivosUpload(arquivo);
 		return arquivos;	
 	}
+	
+	public void downloadArquivos(String tipo, int id, String path) throws SQLException, IOException {
+		dao.downloadArquivo(tipo, id, path);
+	}
 
 }

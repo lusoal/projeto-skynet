@@ -146,15 +146,15 @@
 																								<div class="row">
 																									<div class="form-group col-md-8">
 																										<label for="campo1">Endereco</label> <input type="text"
-																										class="form-control" name="endereco">
+																										class="form-control" name="endereco" required>
 																									</div>
 																									<div class="form-group col-md-2">
 																										<label for="campo2">Telefone</label> <input type="text" id="phone"
-																										class="form-control" name="telefone_fixo">
+																										class="form-control" name="telefone_fixo" required>
 																									</div>
 																									<div class="form-group col-md-2">
 																										<label for="campo3">Celular</label> <input type="text" id="cellphone"
-																										class="form-control" name="telefone_celular">
+																										class="form-control" name="telefone_celular" required>
 																									</div>
 
 																								</div>
@@ -162,15 +162,15 @@
 																								<div class="row">
 																									<div class="form-group col-md-3">
 																										<label for="campo1">Documento Contato Principal</label> <input type="text" placeholder="Digite o CPF do contato Principal" id"cpfcnpj3"
-																										class="form-control" name="cont_doc">
+																										class="form-control" name="cont_doc" required>
 																									</div>
 																									<div class="form-group col-md-5">
 																										<label for="campo1">Nome Contato Principal</label> <input type="text"
-																										class="form-control" name="cont_nome">
+																										class="form-control" name="cont_nome" required>
 																									</div>
 																									<div class="form-group col-md-4">
 																										<label for="campo2">E-mail contato Principal </label> <input type="text"
-																										class="form-control" name="cont_email">
+																										class="form-control" name="cont_email" required>
 																									</div>
 																								</div>
 
@@ -178,16 +178,16 @@
 																									<div class="form-group col-md-6">
 
 																										<label for="campo3">Site</label> <input type="text"
-																										class="form-control" name="site">
+																										class="form-control" name="site" required>
 																									</div>
 
 
 																									<div class="form-group col-md-3">
 																										<label for="campo3">Data Abertura</label> <input type="text" class="form-control"
-																										name="data" id="date">
+																										name="data" id="date" required>
 																									</div>
 																									<div class="form-group col-md-3">
-																										<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha">
+																										<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha" required>
 																									</div>
 																								</div>
 																								<div id="actions" class="row">

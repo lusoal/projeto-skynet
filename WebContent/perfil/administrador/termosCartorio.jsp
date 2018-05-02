@@ -11,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Termos Empresa</title>
+
 </head>
 <body>
 <c:import url="menu.jsp"/>
@@ -43,10 +44,13 @@
 								<form action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
 									<tr>
 									<input type="hidden" name="tabela" value="downloadArquivos" readonly>
-									<td><input type="text" name="id" value="${arquivo.id}"readonly></td>
-									<td><input type="text" name="nome" value="${arquivo.data}"readonly></td>
+									<td><input type="text" name="id" value="${arquivo.id}" readonly></td>
+									<td><input type="text" name="nome" value="${arquivo.data}" readonly></td>
+									<input type="hidden" name="tipo" value="Administrador">
 									<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>
-									<td><button type="submit" name="acao" value="downloadTermo" class="btn btn-success btn-sm">Download</button>
+									<td>
+									<input type="text" name="path" placeholder="Digite o caminho">
+									<button type="submit" name="acao" value="downloadTermos" class="btn btn-success btn-sm">Download</button>
 									</tr></form>
 								</c:forEach>
 

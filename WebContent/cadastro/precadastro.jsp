@@ -123,7 +123,7 @@
                                                         <div class="form-group col-md-1"></div>
                                                         <div class="form-group col-md-5">
                                                           <label for="name">Nome / Razao Social</label> <input type="text"
-                                                          class="form-control" name="nome">
+                                                          class="form-control" name="nome" required>
                                                         </div>
                                                         <div class="form-group col-md-5">
                                                           <label for="campo2">CNPJ / CPF</label><input type="text" name="documento" id="cpfcnpj3" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
@@ -135,11 +135,11 @@
 
                                                         <div class="form-group col-md-7">
                                                           <label for="name">Email</label> <input type="text"
-                                                          class="form-control" name="email">
+                                                          class="form-control" name="email" required>
                                                         </div>
 
                                                         <div class="form-group col-md-2">
-                                                          <label for="campo3">tipo</label> <select class="form-control" name="tipo">
+                                                          <label for="campo3">tipo</label> <select class="form-control" name="tipo" required>
                                                           <option value="empresa">Empresa</option>
                                                           <option value="cartorio">Cartorio</option>
 

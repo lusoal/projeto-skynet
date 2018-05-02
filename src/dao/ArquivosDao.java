@@ -12,6 +12,9 @@ import model.Arquivos;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ArquivosDao {
 	
@@ -112,7 +115,38 @@ public class ArquivosDao {
 		return arquivos;
 	}
 		
+	public File downloadArquivo(String tipo, int id, String path) throws SQLException, IOException {
+		String sqlSelect = null;
 		
+		if(tipo.equals("Administrador")) {
+			sqlSelect ="SELECT * FROM downloadArquivos where id = ?";
+		}else {
+			sqlSelect ="SELECT * FROM uploadArquivos where id = ?";
+		}
+		Connection conn = ConnectionFactory.realizarConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);
+		//Id do documento e nao do documento de quem fez o upload
+		stm.setLong(1, id);
+		ResultSet rs = stm.executeQuery();
+		
+		 if ( rs.next() ){
+			 byte [] bytes = rs.getBytes("conteudo");
+			 String nome = rs.getString("nome");
+			 String data = rs.getString("data");
+			 //tipo File do java para poder salvar a file
+			 File f = new File(path+nome+"_"+data+".pdf");
+			 //Fazer o download do arquivo
+			 FileOutputStream fos = new FileOutputStream(f);
+			 fos.write( bytes );
+			 fos.close();
+			 
+			 
+		 }
+		return null;
+		
+	}	
+	
+	
 	}
 	
 

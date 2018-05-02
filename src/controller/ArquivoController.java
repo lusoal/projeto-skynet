@@ -160,6 +160,23 @@ public class ArquivoController extends HttpServlet {
 			}
 			
 			
+		}if(pAcao.equals("downloadTermos")){
+			String tipo = request.getParameter("tipo");
+			String id = request.getParameter("id");
+			
+			//Descobrir maneira de pegar o path com o frontend
+			String path = request.getParameter("path");
+					
+			System.out.println(path);
+			
+			ArquivoService service = new ArquivoService();
+			try {
+				service.downloadArquivos(tipo, Integer.parseInt(id), path);
+				System.out.println("fiz o download");
+			} catch (NumberFormatException | SQLException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
