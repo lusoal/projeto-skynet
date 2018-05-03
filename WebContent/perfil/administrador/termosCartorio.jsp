@@ -49,7 +49,7 @@
 									<input type="hidden" name="tipo" value="Administrador">
 									<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>
 									<td>
-									<input type="text" name="path" placeholder="Digite o caminho">
+									<input type="hidden" name="path" placeholder="Digite o caminho" value="">
 									<button type="submit" name="acao" value="downloadTermos" class="btn btn-success btn-sm">Download</button>
 									</tr></form>
 								</c:forEach>

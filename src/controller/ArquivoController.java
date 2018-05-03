@@ -173,6 +173,9 @@ public class ArquivoController extends HttpServlet {
 			try {
 				service.downloadArquivos(tipo, Integer.parseInt(id), path);
 				System.out.println("fiz o download");
+				if(tipo.equals("Administrador")) {
+					response.sendRedirect("perfil/administrador/index.jsp");
+				}
 			} catch (NumberFormatException | SQLException e) {
 				e.printStackTrace();
 			}
