@@ -21,10 +21,10 @@
 <div class="container" style="margin-top:5%">
   <h2>Usuario Adicional</h2>
   <br>
- 
+
   <div class="row">
   	<div class = "col-sm-8" >
-  	<h5>Listar Usuarios Cadastrados ao meu Perfil</h5>	
+  	<h5>Listar Usuarios Cadastrados ao meu Perfil</h5>
   	</div>
   	<div class = "col-sm-4">
   		<form action="${pageContext.request.contextPath}/ListarAdicionais" method="post">
@@ -41,26 +41,26 @@
     <div class="form-group">
       <label class="control-label col-sm-2">Documento</label>
       <div class="col-sm-10">
-        <input class="form-control" id="email" placeholder="Entra seu Nome" name="documento">
+        <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">
     <div class="form-group">
       <label class="control-label col-sm-2">Nome</label>
       <div class="col-sm-10">
-        <input class="form-control" id="email" placeholder="Entra seu Nome" name="nome">
+        <input class="form-control" id="email" placeholder="Digite o Nome" name="nome">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Email:</label>
-      <div class="col-sm-10">          
-        <input type="email" class="form-control" placeholder="Entre seu email" name="email">
+      <div class="col-sm-10">
+        <input type="email" class="form-control" placeholder="Digite o e-mail " name="email">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Senha:</label>
       <div class="col-sm-5">          
-        <input type="password" class="form-control" placeholder="Entre sua Senha" name="senha">
+        <input type="password" class="form-control" placeholder="Cadastre uma Senha" name="senha">
       </div>
     </div>
     <div class="form-group col-sm-2">
@@ -70,7 +70,7 @@
 	    <option>Colaborador</option>
   </select>
 </div>
-    <div class="form-group">        
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-success btn-sm-5">Cadastrar</button>
       </div>

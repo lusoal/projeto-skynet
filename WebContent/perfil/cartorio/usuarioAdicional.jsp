@@ -10,6 +10,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
+  <script type="text/javascript" src="../../vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
+
 <title>Adicionar Usuario</title>
 </head>
 <body>
@@ -21,10 +25,10 @@
 <div class="container" style="margin-top:5%">
   <h2>Usuario Adicional</h2>
   <br>
- 
+
   <div class="row">
   	<div class = "col-sm-8" >
-  	<h5>Listar Usuarios Cadastrados ao meu Perfil</h5>	
+  	<h5>Listar Usuarios Cadastrados ao meu Perfil</h5>
   	</div>
   	<div class = "col-sm-4">
   		<form action="${pageContext.request.contextPath}/ListarAdicionais" method="post">
@@ -38,10 +42,10 @@
   	<br>
   </div>
   <form class="form-horizontal" action="${pageContext.request.contextPath}/AdicionarAdicional" method="post">
-    <div class="form-group">
+    <div class="form-group" >
       <label class="control-label col-sm-2">Documento</label>
       <div class="col-sm-10">
-        <input class="form-control" id="email" placeholder="Entra seu Nome" name="documento">
+        <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">
@@ -53,13 +57,13 @@
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Email:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10">
         <input type="email" class="form-control" placeholder="Entre seu email" name="email">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Senha:</label>
-      <div class="col-sm-5">          
+      <div class="col-sm-5">
         <input type="password" class="form-control" placeholder="Entre sua Senha" name="senha">
       </div>
     </div>
@@ -70,7 +74,7 @@
 	    <option>Colaborador</option>
   </select>
 </div>
-    <div class="form-group">        
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-success btn-sm-5">Cadastrar</button>
       </div>
