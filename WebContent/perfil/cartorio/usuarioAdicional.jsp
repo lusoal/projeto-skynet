@@ -41,11 +41,13 @@
   	<br>
   	<br>
   </div>
+
   <form class="form-horizontal" action="${pageContext.request.contextPath}/AdicionarAdicional" method="post">
     <div class="form-group" >
       <label class="control-label col-sm-2">Documento</label>
+      <input type="text" name="documento" id="cpfcnpj4" class="form-control" maxlength="14" minlength="11"  placeholder="aaaaaaaaaaaaaa seu CPF" required autofocus />
       <div class="col-sm-10">
-        <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
+
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">
