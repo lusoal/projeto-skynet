@@ -67,7 +67,7 @@
 
             <ul class="dropdown-menu">
 
-              <form class="form-signin" action="CadastroController.do" method="post">
+              <form class="form-signin" action="controller.do" method="post">
 
                 <h6 class="form-signin-heading" align="center">Insira seu Documento</h6>
 
@@ -75,7 +75,7 @@
 
                 <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
-                <button class="btn btn-sm btn btn-success btn-block" name="acao" value="verificarPre" type="submit">Cadastrar</button>
+                <button class="btn btn-sm btn btn-success btn-block" name="command" value="VerificarPre" type="submit">Cadastrar</button>
 
               </form>
 
@@ -90,7 +90,7 @@
             <span class="caret"></span></a>
 
             <ul class="dropdown-menu">
-              <form class="form-signin" action="RealizarLogin" method="post">
+              <form class="form-signin" action="controller.do" method="post">
 
                 <h6 class="form-signin-heading" align="center">Realize seu Login</h6>
 
@@ -99,9 +99,14 @@
                 <input type="text" name="documento" id="cpfcnpj2" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
                 <input type="password"  name="senha" class="form-control" maxlength="32" minlength="6"  placeholder="Digite sua senha" required>
-
-
-                <button  class="btn btn-sm btn btn-success btn-block" type="submit">Entrar</button>
+				<div class="form-check">
+				<input class="form-check-input" type="checkbox" name="colaborador" value="usuarioAdicional" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+    				Colaborador
+ 				 </label>
+ 				 </div>
+ 				 
+                <button  class="btn btn-sm btn btn-success btn-block" name="command" value="RealizarLogin" type="submit">Entrar</button>
 
               </form>
             </ul>

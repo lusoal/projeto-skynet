@@ -29,7 +29,7 @@ function myFunction() {
 	response.sendRedirect("../../index.html");
 }%>
 <div class ="containder-fluid" style="padding:5%">
-    <form  method="post" action="${pageContext.request.contextPath}/CadastroController.do" id="formAlterar">
+    <form  method="post" action="${pageContext.request.contextPath}/controller.do" id="formAlterar">
     <div id="color_23">
         
     <div class="row">
@@ -91,7 +91,7 @@ function myFunction() {
 	</div>     
 <div id="actions" class="row">
 	<div class="col-sm-6">
-		<button name="acao" type="submit" value="alterarCadastro" class="btn btn-primary" id="alterar">Alterar</button>
+		<button name="command" type="submit" value="AlterarCadastro" class="btn btn-primary" id="alterar">Alterar</button>
 	</div>
 </div>
         </div>

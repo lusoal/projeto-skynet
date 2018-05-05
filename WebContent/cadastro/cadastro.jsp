@@ -65,7 +65,7 @@
 																data-toggle="dropdown" href="#"><strong>Ja Realizei o
 																Pre-Cadastro</strong> <span class="caret"></span></a>
 																<ul class="dropdown-menu">
-																	<form class="form-signin" action="RealizarLogin" method="post">
+																	<form class="form-signin" action="${pageContext.request.contextPath}/controller.do" method="post">
 
 																		<h6 class="form-signin-heading" align="center">Insira seu
 																			Documento</h6>
@@ -75,8 +75,7 @@
 
 																			<input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
-																			<button class="btn btn-sm btn btn-success btn-block"
-																				type="submit">Entrar</button>
+																			<button class="btn btn-sm btn btn-success btn-block" name="command" value="VerificarPre" type="submit">Entrar</button>
 
 																			</form>
 
@@ -86,7 +85,7 @@
 																			data-toggle="dropdown" href="#"><b>Login</b><span
 																			class="caret"></span></a>
 																			<ul class="dropdown-menu">
-																				<form class="form-signin" action="RealizarLogin" method="post">
+																				<form class="form-signin" action="${pageContext.request.contextPath}/controller.do" method="post">
 
 																					<h6 class="form-signin-heading" align="center">Realize seu
 																						Login</h6>
@@ -99,9 +98,7 @@
 																							type="password" name="senha" class="form-control"
 																							placeholder="Digite sua senha" required>
 
-																							<button class="btn btn-sm btn btn-success btn-block"
-																								type="submit">Entrar</button>
-
+																							<button class="btn btn-sm btn btn-success btn-block" name="command" value="RealizarLogin" type="submit">Entrar</button>
 																							</form>
 
 																						</ul>
@@ -120,7 +117,7 @@
 																				<h1>Cadastro</h1>
 
 																				<div class ="containder-fluid">
-																					<form action="${pageContext.request.contextPath}/CadastroController.do" method="post">
+																					<form action="${pageContext.request.contextPath}/controller.do" method="post">
 																						<div id="color_23">
 
 																							<div class="row">
@@ -192,12 +189,13 @@
 																								</div>
 																								<div id="actions" class="row">
 																									<div class="col-sm-6">
-																										<button type="submit" name="acao" value="cadastrarUsuario" class="btn btn-primary">Salvar</button>
-																										<button type="submit" name="acao" value="cancelarCadastro" class="btn btn-default">Cancelar</button>
+																										<button type="submit" name="command" value="CadastrarUsuario" class="btn btn-primary">Salvar</button>
+																										<a href="${pageContext.request.contextPath}/controller.do?command=Logout" class="btn btn-danger">Cancelar</a>
 																									</div>
 																								</div>
 																							</div>
 																						</form>
+																						
 																					</div>
 																					<%} %>
 																				</body>

@@ -1,26 +1,28 @@
-package controller;
+package command;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Login;
-import model.Publico;
 import service.LoginService;
-import service.PublicoService;
 
-@WebServlet("/RealizarLogin")
-public class RealizarLogin extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class RealizarLogin implements Command {
+
+	@Override
+	public void executar(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String pColaborador = request.getParameter("colaborador");
+		
+		if(pColaborador!=null) {
+			System.out.println("Fazer Login Colaborador");
+			command.LoginColaborador.login(request, response);
+			
+		}else {
+		
 		String pDocumento = request.getParameter("documento");
 		String psenha = request.getParameter("senha");
 		
@@ -44,7 +46,7 @@ public class RealizarLogin extends HttpServlet {
 			
 			if(pass == true && carregarTipo.equals("administrador")) {
 				HttpSession session=request.getSession();  
-		        session.setAttribute("documento", pDocumento);
+		        session.setAttribute("documento", logar.getDocumento());
 				response.sendRedirect("perfil/administrador/index.jsp");
 				
 			}else if(pass == true && carregarTipo.equals("cartorio")) {
@@ -67,5 +69,7 @@ public class RealizarLogin extends HttpServlet {
 			response.sendRedirect("index.html");
 		}
 
+		}
 	}
+
 }

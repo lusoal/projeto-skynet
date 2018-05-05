@@ -62,7 +62,7 @@
                                     data-toggle="dropdown" href="#"><b>Ja Realizei o
                                     Pre-Cadastro</b> <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                      <form class="form-signin" action="RealizarLogin" method="post">
+                                      <form class="form-signin" action="${pageContext.request.contextPath}/controller.do" method="post">
 
                                         <h6 class="form-signin-heading" align="center">Insira seu
                                           Documento</h6>
@@ -70,8 +70,7 @@
                                           <label for="inputEmail" class="sr-only"> Digite seu CPF
                                           </label> <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
-                                          <button class="btn btn-sm btn btn-success btn-block"
-                                            type="submit">Entrar</button>
+                                          <button class="btn btn-sm btn btn-success btn-block" name="command" value="VerificarPre" type="submit">Entrar</button>
 
                                           </form>
 
@@ -81,7 +80,7 @@
                                           data-toggle="dropdown" href="#"><b>Login</b><span
                                           class="caret"></span></a>
                                           <ul class="dropdown-menu">
-                                            <form class="form-signin" action="RealizarLogin" method="post">
+                                            <form class="form-signin" action="${pageContext.request.contextPath}/controller.do" method="post">
 
                                               <h6 class="form-signin-heading" align="center">Realize seu
                                                 Login</h6>
@@ -95,8 +94,7 @@
                                                   type="password" name="senha" class="form-control"
                                                   placeholder="Digite sua senha" required>
 
-                                                  <button class="btn btn-sm btn btn-success btn-block"
-                                                    type="submit">Entrar</button>
+                                                  <button class="btn btn-sm btn btn-success btn-block" name="command" value="RealizarLogin" type="submit">Entrar</button>
 
                                                   </form>
 
@@ -115,7 +113,7 @@
                                             <br>
                                               <br>
 
-                                                <form class="form-signin" action="${pageContext.request.contextPath}/PublicoController.do" method="post">
+                                                <form class="form-signin" action="${pageContext.request.contextPath}/controller.do" method="post">
                                                   <h1>Pre-cadastro</h1>
                                                   <div class="container">
                                                     <div id="color_23">
@@ -147,7 +145,7 @@
 
 
                                                         </select> <br>
-                                                        <button class="btn btn-md btn  btn-outline-success btn-block" name="acao" value="cadastrarPublico" type="submit">Realizar!</button>
+                                                        <button class="btn btn-md btn  btn-outline-success btn-block" name="command" value="CadastrarPublico" type="submit">Realizar!</button>
                                                       </div>
                                                     </div>
 

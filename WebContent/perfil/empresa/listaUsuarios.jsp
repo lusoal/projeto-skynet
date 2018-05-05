@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
 	</br>
 	</br>
 	</br>
-	<form action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
+	<form action="${pageContext.request.contextPath}/controller.do" method="post">
   	<div class="row">
   	<div class="col-sm-2">
   	</div>
@@ -33,7 +33,7 @@ pageEncoding="UTF-8"%>
     <input type="hidden" name="tipo" value="empresa">
     </div>
     <div class="col-sm-2">
-    <button name="acao" value="listarAdicional" class="btn btn-outline-success btn-rounded" type="submit">Search</button>
+    <button name="command" value="ListarAdicional" class="btn btn-outline-success btn-rounded" type="submit">Search</button>
   	</div>
   </div>
  	</form>
@@ -56,7 +56,7 @@ pageEncoding="UTF-8"%>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" action="${pageContext.request.contextPath}/usuarioAdicionalController.do" method="post">
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/controller.do" method="post">
 							<input type="hidden" name="tipo" value="empresa">
 							<div class="form-group">
 								<label class="control-label col-sm-2">Documento</label>
@@ -65,6 +65,7 @@ pageEncoding="UTF-8"%>
 								</div>
 							</div>
 							<input type="hidden" name="documentoPrincipal" value="${documento}">
+							<input type="hidden" name="tipo" value="empresa">
 							<div class="form-group">
 								<label class="control-label col-sm-2">Nome</label>
 								<div class="col-sm-10">
@@ -93,7 +94,7 @@ pageEncoding="UTF-8"%>
 							<div class="form-group">
 								<div class="modal-footer">
 									<div class="col-sm-offset-2 col-sm-4">
-										<button type="submit" name="acao" value="adicionarAdicional" class="btn btn-success btn-sm-5">Cadastrar</button>
+										<button type="submit" name="command" value="AdicionarAdicional" class="btn btn-success btn-sm-5">Cadastrar</button>
 										<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 									</div>
 								</div>

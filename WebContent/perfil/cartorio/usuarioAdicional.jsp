@@ -49,6 +49,7 @@
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">
+    <input type="hidden" name="tipo" value="cartorio">
     <div class="form-group">
       <label class="control-label col-sm-2">Nome</label>
       <div class="col-sm-10">

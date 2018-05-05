@@ -1,5 +1,7 @@
 package service;
 
+import java.sql.SQLException;
+
 import dao.LoginDao;
 import model.Login;
 
@@ -20,5 +22,9 @@ public class LoginService {
 	
 	public String selectTipo(Login login) {
 		return dao.carregarTipo(login);
+	}
+	
+	public boolean LoginAdicional(Login login) {
+		return dao.LoginAdicional(login);
 	}
 }
