@@ -10,6 +10,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../../vendor/js/validacoes.js"></script>
+  <script type="text/javascript" src="../../../vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
+
+
 <title>Adicionar Usuario</title>
 </head>
 <body>
@@ -41,7 +45,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2">Documento</label>
       <div class="col-sm-10">
-        <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
+        <input type="text" name="documento" id="cpfcnpj2" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">
@@ -59,7 +63,7 @@
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Senha:</label>
-      <div class="col-sm-5">          
+      <div class="col-sm-5">
         <input type="password" class="form-control" placeholder="Cadastre uma Senha" name="senha">
       </div>
     </div>
