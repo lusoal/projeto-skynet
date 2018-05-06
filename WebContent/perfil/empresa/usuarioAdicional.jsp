@@ -5,6 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <link rel="shortcut icon" href="../../../img/skynet_t_shirt_textual_tees.png"
+  type="image/x-png" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -45,7 +47,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2">Documento</label>
       <div class="col-sm-10">
-        <input type="text" name="documento" id="cpfcnpj2" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
+        <input type="text" name="documento" id="cpfcnpj4" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
       </div>
     </div>
     <input type="hidden" name="documentoPrincipal" value="${documento}">

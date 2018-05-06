@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="shortcut icon" href="../../img/skynet_t_shirt_textual_tees.png"
+  type="image/x-png" />
+
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -43,6 +47,8 @@
   </div>
 
   <form class="form-horizontal" action="${pageContext.request.contextPath}/AdicionarAdicional" method="post">
+    <script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
+    <script type="text/javascript" src="../../vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
     <div class="form-group" >
       <label class="control-label col-sm-2">Documento</label>
       <input type="text" name="documento" id="cpfcnpj4" class="form-control" maxlength="14" minlength="11"  placeholder="aaaaaaaaaaaaaa seu CPF" required autofocus />
@@ -55,13 +61,13 @@
     <div class="form-group">
       <label class="control-label col-sm-2">Nome</label>
       <div class="col-sm-10">
-        <input class="form-control" id="email" placeholder="Entra seu Nome" name="nome">
+        <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Email:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" placeholder="Entre seu email" name="email">
+        <input type="email" class="form-control" placeholder="Insira o seu E-mail" name="email">
       </div>
     </div>
     <div class="form-group">

@@ -11,6 +11,9 @@ pageEncoding="UTF-8"%>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
+	<script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
+  <script type="text/javascript" src="../../vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
+
 
 	<script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
 	<title>Usuarios Adicionais</title>
@@ -61,7 +64,7 @@ pageEncoding="UTF-8"%>
 							<div class="form-group">
 								<label class="control-label col-sm-2">Documento</label>
 								<div class="col-sm-10">
-									<input class="form-control" id="email" placeholder="Cadastre o CPF" name="documento">
+									<input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 								</div>
 							</div>
 							<input type="hidden" name="documentoPrincipal" value="${documento}">

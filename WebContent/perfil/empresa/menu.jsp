@@ -2,9 +2,13 @@
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-md bg-light navbar-light">
   <ul class="navbar-nav">
+    <a class="navbar-brand" href="index.html" ><img
+      src="img/navbar1.jpg" width=80% height=40%
+      style="float: left; margin-left: 0%"></a>
     <li class="nav-item active">
       <a class="nav-link" href="perfil/empresa/index.jsp">Empresa</a>
     </li>
+
     <form style="margin-right: 5%; margin-left:2%" action="${pageContext.request.contextPath}/controller.do" method="post">
     <input type="hidden" name="documentoPrincipal" value="${documento}">
     <input type="hidden" name="tipo" value="empresa">
@@ -21,7 +25,7 @@
      <li class="nav-item">
      <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
       <input type="hidden" name="documento" value="${documento}">
-      <input type="hidden" name="tipo" value="empresa">	
+      <input type="hidden" name="tipo" value="empresa">
       <button name="command" value="ListarUsuario" style="margin-right: 5%" class="btn nav-link" type=submit>Alterar Cadastro</button>
    	</form>
     </li>

@@ -5,7 +5,7 @@
     <li class="nav-item active">
 
       <a class="nav-link" href="perfil/cartorio/index.jsp">Cartorio
-
+        
       </a>
     </li>
     <form style="margin-right: 5%; margin-left:2%" action="${pageContext.request.contextPath}/controller.do" method="post">
