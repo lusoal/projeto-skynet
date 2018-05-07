@@ -24,10 +24,10 @@
 }%>
 <form action="${pageContext.request.contextPath}/controller.do" method="post">
 <div class="container">
-    <div class="row">
-        <div class="col-md-offset-5 col-md-3">
+    <div class=row">
+        <div class="col-md-offset-5 col-md-3" >
             <div class="form-login">
-            <h4>Welcome back.</h4>
+            <h4>Alterar senha.</h4>
             <input type="text" name="senha" class="form-control input-sm chat-input" placeholder="Digite sua Senha" />
             </br>
             <input type="text" name="senha1" class="form-control input-sm chat-input" placeholder="Confirme sua Senha" />
