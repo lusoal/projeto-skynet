@@ -28,13 +28,14 @@
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
             <h4>Welcome back.</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            <input type="text" name="senha" class="form-control input-sm chat-input" placeholder="Digite sua Senha" />
             </br>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            <input type="text" name="senha1" class="form-control input-sm chat-input" placeholder="Confirme sua Senha" />
             </br>
+              <input type="hidden" name="documento" value="${documento}" />
             <div class="wrapper">
             <span class="group-btn">
-                <button type ="submit" name="command" value="AlterarSenhaAdicional" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                <button type ="submit" name="command" value="AlterarSenhaAdicional" class="btn btn-primary btn-md">Salvar <i class="fa fa-sign-in"></i></a>
             </span>
             </div>
             </div>
