@@ -18,10 +18,6 @@
 
 
 <body>
-<c:import url="menu.jsp"/>
-<% if(session.getAttribute("documento") == null) {
-	response.sendRedirect("../../index.html");
-}%>
 <form action="${pageContext.request.contextPath}/controller.do" method="post">
 <div class="container">
     <div class=row">

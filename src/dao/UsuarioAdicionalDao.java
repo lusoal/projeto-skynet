@@ -11,7 +11,7 @@ import model.UsuarioAdicional;
 public class UsuarioAdicionalDao {
 
 	public void incluirAdicional(UsuarioAdicional adicional){
-		String sqlInsert = "INSERT INTO usuarioAdicional (documento, documentoPrincipal, nome, email, perfil, senha) VALUES(?, ?, ?, ?, ?, ?)";
+		String sqlInsert = "INSERT INTO usuarioAdicional (documento, documentoPrincipal, nome, email, perfil, senha, status) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		//Iniciar Conexao com o banco
 		//Try para verificar se nao ocorre exeptions
 		try {
@@ -23,6 +23,7 @@ public class UsuarioAdicionalDao {
 			stm.setString(4, adicional.getEmail());
 			stm.setString(5, adicional.getPerfil());
 			stm.setString(6, adicional.getSenha());
+			stm.setBoolean(7, adicional.getStatus());
 			stm.execute();
 			//Essa parte e necessaria para poder inserir um valor no ID para mostrar no HTML gerado pelo Controller
 		}catch(SQLException e) {

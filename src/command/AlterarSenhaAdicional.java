@@ -22,7 +22,7 @@ public class AlterarSenhaAdicional implements Command {
 			Login login = new Login(Long.parseLong(pDocumento), pSenha);
 			LoginService service = new LoginService();
 			service.alterarSenhaAssociado(login, pSenha);
-			response.sendRedirect("../../index.jsp");
+			response.sendRedirect("index.html");
 		}else {
 			System.out.println("Nao consegui alterar");
 		}

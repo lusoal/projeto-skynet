@@ -30,17 +30,19 @@ public class LoginColaborador implements Command {
 			 //Pegar Documento vinculado a conta
 			 System.out.println("Login Permitido");
 			 if(service.verificarSenha(login)) {
+				 System.out.println("status false");
 				request.setAttribute("documento", login.getDocumento());
 				RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/alterarSenha.jsp");
 				view.forward(request, response); 
+			 }else {
+				 Cadastros cadastro = new Cadastros();
+				 service.carregarAssociado(login, cadastro);
+				 
+				 HttpSession session= request.getSession();  
+			     session.setAttribute("cadastro", cadastro);
+			     session.setAttribute("documento", login.getDocumento());
+			     response.sendRedirect("perfil/adicional/index.jsp");
 			 }
-			 Cadastros cadastro = new Cadastros();
-			 service.carregarAssociado(login, cadastro);
-			 
-			 HttpSession session= request.getSession();  
-		     session.setAttribute("cadastro", cadastro);
-		     session.setAttribute("documento", login.getDocumento());
-		     response.sendRedirect("perfil/adicional/index.jsp");
 			 
 		 }
 		
