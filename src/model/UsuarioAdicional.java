@@ -8,18 +8,20 @@ public class UsuarioAdicional {
 	private String email;
 	private String senha;
 	private String perfil;
+	private boolean status;
 	
 	
 	
 	
 	public UsuarioAdicional(String nome, long documento, long documentoPrinc, String email, String senha,
-			String perfil) {
+			String perfil, boolean status) {
 		this.nome = nome;
 		this.documento = documento;
 		this.documentoPrinc = documentoPrinc;
 		this.email = email;
 		this.senha = senha;
 		this.perfil = perfil;
+		this.status = status; 
 	}
 	
 	public UsuarioAdicional() {
@@ -61,6 +63,14 @@ public class UsuarioAdicional {
 	}
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
+	}
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	
 	

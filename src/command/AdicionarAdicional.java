@@ -24,7 +24,7 @@ public class AdicionarAdicional implements Command {
 		String pTipo = request.getParameter("tipo");
 		
 		UsuarioAdicional adicional = new UsuarioAdicional(pNome, Long.parseLong(pDocumento), 
-				Long.parseLong(pDocumentoPrincipal), pEmail, pSenha, pPerfil);
+				Long.parseLong(pDocumentoPrincipal), pEmail, pSenha, pPerfil, false);
 		UsuarioAdicionalService service = new UsuarioAdicionalService();
 		
 		try {
