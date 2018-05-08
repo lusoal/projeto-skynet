@@ -20,11 +20,8 @@
 }%>
 <div style= "margin-top:10%" class="container">
   <h3>Bem Vindo Colaborador ${documento}</h3>
-  <p>Aqui e a sua central!</p>
-<br>
-  <br>
-    <br>
-  <p> Você está vinculado a empresa: ${cadastro.documento},  ${cadastro.nome}  </p>
+
+  <p h2> Você está vinculado a empresa: ${cadastro.documento},  ${cadastro.nome}  </h2 p>
 </div>
 
 </body>
