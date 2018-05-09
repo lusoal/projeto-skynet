@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-md bg-light navbar-light">
   <ul class="navbar-nav">
-    <a class="navbar-brand" href="index.html" ><img
-      src="img/navbar1.jpg" width=80% height=40%
-      style="float: left; margin-left: 0%"></a>
     <li class="nav-item active">
       <a class="nav-link" href="perfil/empresa/index.jsp">Empresa</a>
     </li>

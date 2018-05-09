@@ -11,8 +11,8 @@
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
-            <script
-              src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+           
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
               <script
                 src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
                 integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -28,7 +28,19 @@
                   <link rel="stylesheet"
                     href="../vendor/simple-line-icons/css/simple-line-icons.css">
                     <link href="../css/one-page-wonder.css" rel="stylesheet">
-
+							 <script>
+					            $(document).ready(function(){
+					                $("#meubotao").hide(); 
+					            });
+		           			 </script>
+		           			 
+		           			  <script>
+					            $(document).ready(function(){
+					                $("#meucheck").click(function(){
+					                	$("#meubotao").toggle();
+					                }); 
+					            });
+		           			 </script>
 
                       <title>SkyNetProject</title>
                       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -118,25 +130,24 @@
                                                   <div class="container">
                                                     <div id="color_23">
                                                       <div class="row">
-                                                        <div class="form-group col-md-1"></div>
+                                                        
                                                         <div class="form-group col-md-5">
                                                           <label for="name">Nome / Razao Social</label> <input type="text"
                                                           class="form-control" name="nome" required>
                                                         </div>
-                                                        <div class="form-group col-md-5">
+                                                        <div class="form-group col-md-7">
                                                           <label for="campo2">CNPJ / CPF</label><input type="text" name="documento" id="cpfcnpj3" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
                                                         </div>
                                                       </div>
                                                       <div class="row">
-                                                        <div class="form-group col-md-1">
-                                                        </div>
+                                                        
 
                                                         <div class="form-group col-md-7">
                                                           <label for="name">Email</label> <input type="text"
                                                           class="form-control" name="email" required>
                                                         </div>
 
-                                                        <div class="form-group col-md-2">
+                                                        <div class="form-group col-md-4">
                                                           <label for="campo3">tipo</label> <select class="form-control" name="tipo" required>
                                                           <option value="empresa">Empresa</option>
                                                           <option value="cartorio">Cartorio</option>
@@ -145,11 +156,39 @@
 
 
                                                         </select> <br>
-                                                        <button class="btn btn-md btn  btn-outline-success btn-block" name="command" value="CadastrarPublico" type="submit">Realizar!</button>
+                                                
+                                                        <input id="meucheck" type="checkbox"> 
+                                              
+                                                        Eu aceito os <a href="#" data-toggle="modal" data-target="#myModal">termos de uso.</a>
+                                                        <br>
+                                                        <br>
+                                                       
+                                                        <button id="meubotao" class="btn btn-md btn  btn-outline-success btn-block" name="command" value="CadastrarPublico" type="submit" disable>Realizar!</button>
                                                       </div>
                                                     </div>
 
                                                   </div>
+                                                  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h4 class="modal-title">Termos de uso</h4>
+        </div>
+        <div class="modal-body">
+          <p>Evidentemente, a expansão dos mercados mundiais cumpre um papel essencial na formulação do sistema de participação geral. Neste sentido, o novo modelo estrutural aqui preconizado agrega valor ao estabelecimento das novas proposições. No entanto, não podemos esquecer que o acompanhamento das preferências de consumo assume importantes posições no estabelecimento das condições financeiras e administrativas exigidas. Por conseguinte, o desafiador cenário globalizado facilita a criação do fluxo de informações. A certificação de metodologias que nos auxiliam a lidar com a valorização de fatores subjetivos não pode mais se dissociar das condições inegavelmente apropriadas. 
+</p>
+<p>Ainda assim, existem dúvidas a respeito de como a consulta aos diversos militantes oferece uma interessante oportunidade para verificação das formas de ação. O incentivo ao avanço tecnológico, assim como o aumento do diálogo entre os diferentes setores produtivos afeta positivamente a correta previsão dos índices pretendidos. Não obstante, a determinação clara de objetivos estimula a padronização dos procedimentos normalmente adotados. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a estrutura atual da organização representa uma abertura para a melhoria dos relacionamentos verticais entre as hierarquias. Nunca é demais lembrar o peso e o significado destes problemas, uma vez que o fenômeno da Internet ainda não demonstrou convincentemente que vai participar na mudança do processo de comunicação como um todo. </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                                                 </div>
                                               </form>
                                             </body>
