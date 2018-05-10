@@ -44,6 +44,8 @@ public class LoginColaborador implements Command {
 			     response.sendRedirect("perfil/adicional/index.jsp");
 			 }
 			 
+		 }else {
+			 response.sendRedirect("index.html");
 		 }
 		
 		
@@ -51,6 +53,7 @@ public class LoginColaborador implements Command {
 	}
 	
 	public static void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Entrou em colaborador");
 		LoginColaborador login = new LoginColaborador();
 		login.executar(request, response);
 	}

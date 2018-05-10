@@ -44,24 +44,24 @@ function myFunction() {
 			class="form-control" name="nome" value="${empresa.nome}">
 	</div>
 	<div class="form-group col-md-4">
-		<label for="name">Email</label> <input type="text" class="form-control" name="email" value="${usuario.email}">
+		<label for="name">Email</label> <input type="text" class="form-control" name="email" value="${empresa.email}">
 	</div>
 	<input type="hidden" name="documento" value="${documento}">
 
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
-			class="form-control" name="telefone_fixo" value="${usuario.telefoneFixo}">
+			class="form-control" name="telefone_fixo" value="${empresa.telefoneFixo}">
 	</div>
 	<div class="form-group col-md-2">
 		<label for="campo3">Celular</label> <input type="text"
-			class="form-control" name="telefone_celular" value="${usuario.telefoneCelular}">
+			class="form-control" name="telefone_celular" value="${empresa.telefoneCelular}">
     </div>
 </div>
 
 <div class="row">
 	<div class="form-group col-md-12">
 		<label for="campo1">Endereco</label> <input type="text"
-			class="form-control" name="endereco" value="${usuario.endereco}">
+			class="form-control" name="endereco" value="${empresa.endereco}">
 	</div>
 
 
@@ -70,15 +70,15 @@ function myFunction() {
 <div class="row">
 	<div class="form-group col-md-3">
 		<label for="campo1">Documento Contato Principal</label> <input type="text"
-			class="form-control" name="cont_doc" value="${usuario.contatoDocumento}">
+			class="form-control" name="cont_doc" value="${empresa.contatoDocumento}">
 	</div>
 	<div class="form-group col-md-5">
 		<label for="campo1">Nome Contato Principal</label> <input type="text"
-			class="form-control" name="cont_nome" value="${usuario.nomeContato}">
+			class="form-control" name="cont_nome" value="${empresa.nomeContato}">
 	</div>
 	<div class="form-group col-md-4">
 		<label for="campo2">E-mail contato Principal </label> <input type="text"
-			class="form-control" name="cont_email" value="${usuario.contatoEmail}">
+			class="form-control" name="cont_email" value="${empresa.contatoEmail}">
 	</div>
     </div>
 
@@ -86,11 +86,7 @@ function myFunction() {
         <div class="form-group col-md-6">
 
 		<label for="campo3">Site</label> <input type="text"
-			class="form-control" name="site" value="${usuario.site}">
-	</div>
-	<div class="form-group col-md-3">
-		<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha" value="${usuario.senha}">
-		<input type="checkbox" onclick="myFunction()"> Mostrar Senha
+			class="form-control" name="site" value="${empresa.site}">
 	</div>
 	</div>
 <div id="actions" class="row">
