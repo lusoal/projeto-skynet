@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import java.sql.Blob;
+
 import connection.ConnectionFactory;
 import model.Arquivos;
 
@@ -98,7 +100,7 @@ public class ArquivosDao {
 	
 	
 	public ArrayList<Arquivos> listarArquivosUpload(Arquivos arquivo) throws SQLException {
-		String sqlSelect="SELECT * FROM uploadArquivos where documentoPrincipal = ?";
+		String sqlSelect="SELECT * FROM uploadArquivos where documentoPrincipal = ? order by id DESC LIMIT 5";
 		Connection conn = ConnectionFactory.realizarConexao();
 		
 		ArrayList<Arquivos> arquivos = new ArrayList<Arquivos>();
@@ -115,9 +117,9 @@ public class ArquivosDao {
 		return arquivos;
 	}
 		
-	public File downloadArquivo(String tipo, int id, String path) throws SQLException, IOException {
+	public void downloadArquivo(String tipo, Arquivos arquivo) throws SQLException, IOException {
 		String sqlSelect = null;
-		
+		System.out.println("Entrei aqui");
 		if(tipo.equals("Administrador")) {
 			sqlSelect ="SELECT * FROM downloadArquivos where id = ?";
 		}else {
@@ -126,26 +128,41 @@ public class ArquivosDao {
 		Connection conn = ConnectionFactory.realizarConexao();
 		PreparedStatement stm = conn.prepareStatement(sqlSelect);
 		//Id do documento e nao do documento de quem fez o upload
-		stm.setLong(1, id);
+		stm.setLong(1, arquivo.getId());
 		ResultSet rs = stm.executeQuery();
 		
 		 if ( rs.next() ){
-			 byte [] bytes = rs.getBytes("conteudo");
+			 Blob blob = rs.getBlob("conteudo");
 			 String nome = rs.getString("nome");
 			 String data = rs.getString("data");
-			 //tipo File do java para poder salvar a file
-			 File f = new File(path+nome+"_"+data+".pdf");
-			 //Fazer o download do arquivo
-			 FileOutputStream fos = new FileOutputStream(f);
-			 fos.write( bytes );
-			 fos.close();
 			 
-			 
+			 arquivo.setContent(blob);
+			 arquivo.setNome(nome+"_"+data);	 
 		 }
-		return null;
+		 
 		
-	}	
+		
+		
+	}
 	
+	public void termoPreCadastro(String tipo, Arquivos arquivo) throws SQLException {
+		String sqlSelect = "";
+		
+		if(tipo.equals("Empresa")) {
+			sqlSelect = "select * from downloadArquivos where nome='termo_empresa' order by id desc limit 1";
+		}else {
+			sqlSelect = "select * from downloadArquivos where nome='termo_cartorio' order by id desc limit 1";
+		}
+		Connection conn = ConnectionFactory.realizarConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);
+		
+		ResultSet rs = stm.executeQuery();
+		
+		if(rs.next()) {
+			arquivo.setData(rs.getString("data"));
+			arquivo.setId(rs.getLong("id"));
+		}	
+	}
 	
 	}
 	

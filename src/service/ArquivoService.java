@@ -4,6 +4,7 @@ import model.Arquivos;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.SQLException;
 
 import org.apache.commons.io.IOUtils;
@@ -46,8 +47,12 @@ public class ArquivoService {
 		return arquivos;	
 	}
 	
-	public void downloadArquivos(String tipo, int id, String path) throws SQLException, IOException {
-		dao.downloadArquivo(tipo, id, path);
+	public void downloadArquivos(String tipo, Arquivos arquivo) throws SQLException, IOException {
+		dao.downloadArquivo(tipo, arquivo);
+	}
+	
+	public void termoPreCadastro(String tipo, Arquivos arquivo) throws SQLException {
+		dao.termoPreCadastro(tipo, arquivo);
 	}
 
 }

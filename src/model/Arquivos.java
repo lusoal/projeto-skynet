@@ -1,6 +1,6 @@
 package model;
 
-
+import java.sql.Blob;
 
 public class Arquivos {
 
@@ -8,6 +8,8 @@ public class Arquivos {
 	private long documento;
 	private String nome;
 	private String data;
+	private Blob content;
+	
 	
 	public Arquivos(long id, long documento, String nome, String data) {
 		this.id = id;
@@ -16,8 +18,22 @@ public class Arquivos {
 		this.data=data;
 	}
 	
+	public Arquivos(String nome, Blob content) {
+		this.nome = nome;
+		this.content = content;
+		
+	}
+	
 	public Arquivos() {
 		
+	}
+	
+	public Blob getContent() {
+		return content;
+	}
+
+	public void setContent(Blob content) {
+		this.content = content;
 	}
 	
 	public String getData() {

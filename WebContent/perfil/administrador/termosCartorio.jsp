@@ -19,11 +19,11 @@
 	response.sendRedirect("../../index.html");
 }%>
 <div style="margin-top:3%" class="container">
-	<form action="${pageContext.request.contextPath}/ArquivoController.do" enctype='multipart/form-data' method="post">
+	<form action="${pageContext.request.contextPath}/controller.do" enctype='multipart/form-data' method="post">
 	<input type="file" name="arquivo">
 	<input type="hidden" name="idAdm" value="${documento}">
 	<input type="hidden" name="nome" value="termo_cartorio"> 
-	<button type="submit" name="acao" value="uploadTermosAdmin" class="btn btn-success btn-sm">Adicionar</button>
+	<button type="submit" name="command" value="UploadTermosAdmin" class="btn btn-success btn-sm">Adicionar</button>
 	</form>
 	
 	<br>
@@ -41,7 +41,7 @@
 							</thead>
   							<tbody>
 							<c:forEach var="arquivo" items="${arquivo}">
-								<form action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
+								<form action="${pageContext.request.contextPath}/controller.do" method="post">
 									<tr>
 									<input type="hidden" name="tabela" value="downloadArquivos" readonly>
 									<td><input type="text" name="id" value="${arquivo.id}" readonly></td>
@@ -50,7 +50,7 @@
 									<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>
 									<td>
 									<input type="hidden" name="path" placeholder="Digite o caminho" value="">
-									<button type="submit" name="acao" value="downloadTermos" class="btn btn-success btn-sm">Download</button>
+									<button type="submit" name="command" value="DownloadTermos" class="btn btn-success btn-sm">Download</button>
 									</tr></form>
 								</c:forEach>
 

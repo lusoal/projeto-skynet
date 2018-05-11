@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+     <link rel="shortcut icon" href="../img/skynet_t_shirt_textual_tees.png"
+  type="image/x-png" />
+    
 <nav class="navbar navbar-expand-md bg-light navbar-light">
   <ul class="navbar-nav">
     <li class="nav-item active">
@@ -11,13 +15,14 @@
     <input type="hidden" name="tipo" value="empresa">
       <button class="btn nav-link" type=submit name="command" value="ListarAdicional" >Usuario Adicional</button>
       </form>
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
-      <button class="btn nav-link" name="acao" value="listarTermosEmpresa" type=submit>Download Termos</button>
+   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+      <input type="hidden" name="tipo" value="Empresa">
+      <button class="btn nav-link" name="command" value="ListarTermosGerais" type=submit>Download Termos</button>
       </form>
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
+   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
        <input type="hidden" name="documento" value="${documento}">
         <input type="hidden" name="tipo" value="empresa">
-      <button class="btn nav-link" name="acao" value="listarTermos" type=submit>Upload Termos</button>
+      <button class="btn nav-link" name="command" value="ListarTermosVinculados" type=submit>Upload Termos</button>
       </form>
      <li class="nav-item">
      <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">

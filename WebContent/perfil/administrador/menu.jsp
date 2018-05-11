@@ -8,12 +8,12 @@
     <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
       <button class="btn nav-link" name="command" value="RetornarPublico" type=submit>Cadastros Pendentes</button>
       </form>
-   <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
-     	<button name="acao" value="listarTermosAdminEmpresa" class="btn nav-link">Termos Empresa</button></a>
+   <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+     	<button name="command" value="ListarTermosAdminEmpresa" class="btn nav-link">Termos Empresa</button></a>
    </form>
       
-   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/ArquivoController.do" method="post">
-      <button name="acao" value="listarTermosAdminCartorio" class="btn nav-link" type=submit>Termos Cartorio</button>
+   <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+      <button name="command" value="ListarTermosAdminCartorio" class="btn nav-link" type=submit>Termos Cartorio</button>
       </form>
      <li class="nav-item">
      <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
