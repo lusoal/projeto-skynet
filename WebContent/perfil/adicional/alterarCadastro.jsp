@@ -28,7 +28,7 @@ function myFunction() {
 </script>
 
 </head>
-<body>
+<body style="background:#DDDEDE;">
 <c:import url="menu.jsp"/>
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../../index.html");

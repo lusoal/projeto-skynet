@@ -39,7 +39,7 @@
 
                     <title>SkyNetProject</title>
                   </head>
-                  <body>
+                  <body style="background:#DDDEDE;">
                     <nav class="navbar navbar-expand-lg navbar-light fixed-top"
                       style="background-color: white;">
 
