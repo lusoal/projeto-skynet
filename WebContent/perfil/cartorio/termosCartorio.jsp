@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Termos Cartorio</title>
 </head>
-<body>
+<body style="background:#DDDEDE;">
 <c:import url="menu.jsp"/>
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../../index.html");
@@ -24,20 +24,19 @@
 	</br>
 	</br>
 	<table class="table table-striped">
-  						<thead>
+  						<thead style="background:white">
 								<tr>
-									<th>ID</th>
 									<th>DATA</th>
 									<th>TERMO</th>
 									<th>  </th>
 								</tr>
 							</thead>
-  							<tbody>
+  							<tbody style="background:white">
 							<c:forEach var="arquivo" items="${arquivo}">
 								<form action="${pageContext.request.contextPath}/controller.do" method="post">
 									<tr>
 									<input type="hidden" name="tabela" value="downloadArquivos" readonly>
-									<td><input type="text" name="id" value="${arquivo.id}"readonly></td>
+									<input type="hidden" name="id" value="${arquivo.id}"readonly>
 									<td><input type="text" name="nome" value="${arquivo.data}"readonly></td>
 									<input type="hidden" name="tipo" value="Administrador">
 									<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>

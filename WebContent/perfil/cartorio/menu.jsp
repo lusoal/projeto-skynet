@@ -5,28 +5,28 @@
     <li class="nav-item active">
 
       <a class="nav-link" href="perfil/cartorio/index.jsp">Cartorio
-        
+
       </a>
     </li>
     <form style="margin-right: 5%; margin-left:2%" action="${pageContext.request.contextPath}/controller.do" method="post">
     <input type="hidden" name="documentoPrincipal" value="${documento}">
     <input type="hidden" name="tipo" value="cartorio">
-      <button class="btn nav-link" type=submit name="command" value="ListarAdicional" >Usuario Adicional</button>
+      <button  class="btn btn-light" type=submit name="command" value="ListarAdicional" >Usuario Adicional</button>
       </form>
    <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
       <input type="hidden" name="tipo" value="Cartorio">
-      <button class="btn nav-link" name="command" value="ListarTermosGerais" type=submit>Download Termos</button>
+      <button  class="btn btn-light" name="command" value="ListarTermosGerais" type=submit>Download Termos</button>
       </form>
    <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
        <input type="hidden" name="documento" value="${documento}">
         <input type="hidden" name="tipo" value="cartorio">
-      <button class="btn nav-link" name="command" value="ListarTermosVinculados" type=submit>Upload Termos</button>
+      <button  class="btn btn-light" name="command" value="ListarTermosVinculados" type=submit>Upload Termos</button>
       </form>
      <li class="nav-item">
      <form style="margin-right: 5%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
       <input type="hidden" name="documento" value="${documento}">
       <input type="hidden" name="tipo" value="cartorio">
-      <button name="command" value="ListarUsuario" style="margin-right: 5%" class="btn nav-link" type=submit>Alterar Cadastro</button>
+      <button name="command" value="ListarUsuario" style="margin-right: 5%" class="btn btn-light" type=submit>Alterar Cadastro</button>
    	</form>
     </li>
    <form style="margin-left: 60%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">

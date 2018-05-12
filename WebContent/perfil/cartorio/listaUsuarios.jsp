@@ -10,10 +10,10 @@ pageEncoding="UTF-8"%>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	
+
 	<title>Usuarios Adicionais</title>
 </head>
-<body>
+<body style="background:#DDDEDE;">
 	<c:import url="menu.jsp"/>
 	<% if(session.getAttribute("documento") == null) {
 		response.sendRedirect("../../index.html");
@@ -104,7 +104,7 @@ pageEncoding="UTF-8"%>
 
 
 		<table class="table table-hover">
-			<thead>
+			<thead style="background:white">
 				<tr>
 					<th>Documento</th>
 					<th>Nome</th>
@@ -113,7 +113,7 @@ pageEncoding="UTF-8"%>
 					<th>Alterar</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="background:white">
 				<c:forEach var="adicional" items="${arrayAdicional}">
 				<form action="${pageContext.request.contextPath}/AlterarAdicional" method="post">
 					<tr>
