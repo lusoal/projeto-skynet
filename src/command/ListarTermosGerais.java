@@ -30,7 +30,12 @@ public class ListarTermosGerais implements Command {
 				RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/termosCartorio.jsp");
 				view.forward(request, response);
 			}else if(pPerfil.equals("Empresa")) {
+				
 				RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/termosEmpresa.jsp");
+				view.forward(request, response);
+				
+			}else if(pPerfil.equals("Adicional")) {
+				RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/termosEmpresa.jsp");
 				view.forward(request, response);
 			}
 		} catch (SQLException e) {

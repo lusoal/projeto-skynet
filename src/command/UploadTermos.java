@@ -44,6 +44,9 @@ public class UploadTermos implements Command {
 				ListarTermosVinculados termos = new ListarTermosVinculados();
 				termos.executar(request, response);
 				//response.sendRedirect("perfil/empresa/index.jsp");
+			}else if (pTipo.equals("adicional")) {
+				ListarTermosVinculados termos = new ListarTermosVinculados();
+				termos.executar(request, response);
 			}
 		}catch(Exception e) {
 			System.out.println(e);

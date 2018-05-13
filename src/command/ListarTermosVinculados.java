@@ -34,6 +34,9 @@ public class ListarTermosVinculados implements Command {
 			}else if(tipo.equals("empresa")) {
 				RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/uploadTermos.jsp");
 				view.forward(request, response);
+			}else if(tipo.equals("adicional")) {
+				RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/uploadTermos.jsp");
+				view.forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
