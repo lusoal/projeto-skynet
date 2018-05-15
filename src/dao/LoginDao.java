@@ -125,6 +125,7 @@ public class LoginDao {
 					System.out.println("Selecionei a empresa que estou associado");
 					cadastro.setDocumento(rs.getLong("documento"));
 					cadastro.setNome(rs.getString("nome"));
+					cadastro.setTipo(rs.getString("tipo"));
 				}
 			}
 			

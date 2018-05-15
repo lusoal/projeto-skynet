@@ -38,7 +38,8 @@ public class LoginColaborador implements Command {
 				 Cadastros cadastro = new Cadastros();
 				 service.carregarAssociado(login, cadastro);
 				 
-				 HttpSession session= request.getSession();  
+				 HttpSession session= request.getSession();
+				 System.out.println(cadastro.getTipo());
 			     session.setAttribute("cadastro", cadastro);
 			     session.setAttribute("documento", login.getDocumento());
 			     response.sendRedirect("perfil/adicional/index.jsp");

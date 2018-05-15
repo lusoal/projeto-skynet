@@ -21,23 +21,39 @@ public class ListarTermosGerais implements Command {
 		//String perfil="Cartorio";
 		
 		String  pPerfil = request.getParameter("tipo");
+		String adicional = request.getParameter("adicional");
+		if(adicional == null) {
+			adicional = "false";
+		}
+		
 		ArquivoService service = new ArquivoService();
+		System.out.println(pPerfil);
+		System.out.println(adicional);
 		
 		try {
 			ArrayList<Arquivos> arquivos = service.listarArquivosDownload(tipo, pPerfil);
 			request.setAttribute("arquivo", arquivos);
-			if(pPerfil.equals("Cartorio")) {
-				RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/termosCartorio.jsp");
-				view.forward(request, response);
-			}else if(pPerfil.equals("Empresa")) {
-				
-				RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/termosEmpresa.jsp");
-				view.forward(request, response);
-				
-			}else if(pPerfil.equals("Adicional")) {
-				RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/termosEmpresa.jsp");
-				view.forward(request, response);
+			
+			if(pPerfil.equals("Cartorio") || pPerfil.equals("cartorio")) {
+				if(adicional.equals("true")) {
+					System.out.println("Usuario Adicional de Cartorio");
+					RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/termosEmpresa.jsp");
+					view.forward(request, response);
+				}else {
+					RequestDispatcher view = request.getRequestDispatcher("perfil/cartorio/termosCartorio.jsp");
+					view.forward(request, response);
+				}
+			}else if(pPerfil.equals("Empresa") || pPerfil.equals("empresa")) {
+				if(adicional.equals("true")) {
+					System.out.println("Usuario Adicional de Empresa");
+					RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/termosEmpresa.jsp");
+					view.forward(request, response);
+				}else {
+					RequestDispatcher view = request.getRequestDispatcher("perfil/empresa/termosEmpresa.jsp");
+					view.forward(request, response);
+				}
 			}
+			
 		} catch (SQLException e) {
 			System.out.println("erro "+e);
 		}

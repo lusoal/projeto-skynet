@@ -10,7 +10,8 @@
 
 
       <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
-              <input type="hidden" name="tipo" value="Adicional">
+              <input type="hidden" name="adicional" value="true">
+              <input type="hidden" name="tipo" value="${cadastro.tipo}">
                 <button  class="btn btn-light" name="command" value="ListarTermosGerais" type=submit>Download Termos</button>
               </form>
               <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
