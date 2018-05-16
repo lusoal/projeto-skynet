@@ -30,7 +30,7 @@ function myFunction() {
 </head>
 <body style="background:#DDDEDE;">
 <c:import url="menu.jsp"/>
-<% if(session.getAttribute("documento") == null) {
+<% if(session.getAttribute("documentoColab") == null) {
 	response.sendRedirect("../../index.html");
 }%>
 <div class ="containder-fluid" style="padding:5%">
@@ -46,7 +46,8 @@ function myFunction() {
 	<div class="form-group col-md-4">
 		<label for="name">Email</label> <input type="text" class="form-control" name="email" value="${empresa.email}">
 	</div>
-	<input type="hidden" name="documento" value="${documento}">
+	<input type="hidden" name="documento" value="${empresa.documento}">
+	<input type="hidden" name="adicional" value="true">
 
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
@@ -88,6 +89,8 @@ function myFunction() {
 		<label for="campo3">Site</label> <input type="text"
 			class="form-control" name="site" value="${empresa.site}">
 	</div>
+	</div>
+<input type="hidden" class="form-control" name="senha" value="${empresa.senha}">
 	</div>
 <div id="actions" class="row">
 	<div class="col-sm-6">

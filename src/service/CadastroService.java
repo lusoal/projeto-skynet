@@ -29,5 +29,13 @@ public class CadastroService {
 		public void alterarCadastro(Cadastros cad) {
 			dao.atualizarCad(cad);
 		}
+		
+		public ArrayList<Cadastros> selectAllCadastros(){
+			return dao.selecionarTodos();	
+		}
+		
+		public ArrayList<Cadastros> selecionarEmpresas(){
+			return dao.selecionarEmpresas();	
+		}
 				
 }

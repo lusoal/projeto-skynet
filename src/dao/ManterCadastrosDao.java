@@ -114,7 +114,66 @@ public class ManterCadastrosDao {
 			
 			
 		}
+	public ArrayList<Cadastros> selecionarTodos(){
+		ArrayList<Cadastros> lista = new ArrayList<Cadastros>();
+		try {
+		String sqlSelect = "SELECT * FROM cadastro";
+		Connection conn = ConnectionFactory.realizarConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);
+		ResultSet rs = stm.executeQuery();
+		
+		while(rs.next()) {
+			Cadastros cad = new Cadastros();
+			cad.setDocumento(rs.getLong("documento"));
+			cad.setTipo(rs.getString("tipo"));
+			cad.setNome(rs.getString("nome"));
+			cad.setEmail(rs.getString("email"));
+			cad.setEndereco(rs.getString("endereco"));
+			cad.setTelefoneFixo(rs.getLong("telefoneFixo"));
+			cad.setTelefoneCelular(rs.getLong("telefoneCelular"));
+			cad.setNomeContato(rs.getString("nomeContato"));
+			cad.setContatoDocumento(rs.getLong("documentoContato"));
+			cad.setContatoEmail(rs.getString("emailContato"));
+			cad.setSenha(rs.getString("senha"));
+			cad.setSite(rs.getString("site"));
+			lista.add(cad);
+		}
+		
+		}catch(SQLException e) {
+			System.out.println(e);
+		}
+		return lista;	
+	}
 	
+	public ArrayList<Cadastros> selecionarEmpresas(){
+		ArrayList<Cadastros> lista = new ArrayList<Cadastros>();
+		try {
+		String sqlSelect = "SELECT * FROM cadastro where tipo='empresa'";
+		Connection conn = ConnectionFactory.realizarConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);
+		ResultSet rs = stm.executeQuery();
+		
+		while(rs.next()) {
+			Cadastros cad = new Cadastros();
+			cad.setDocumento(rs.getLong("documento"));
+			cad.setTipo(rs.getString("tipo"));
+			cad.setNome(rs.getString("nome"));
+			cad.setEmail(rs.getString("email"));
+			cad.setEndereco(rs.getString("endereco"));
+			cad.setTelefoneFixo(rs.getLong("telefoneFixo"));
+			cad.setTelefoneCelular(rs.getLong("telefoneCelular"));
+			cad.setNomeContato(rs.getString("nomeContato"));
+			cad.setContatoDocumento(rs.getLong("documentoContato"));
+			cad.setContatoEmail(rs.getString("emailContato"));
+			cad.setSite(rs.getString("site"));
+			lista.add(cad);
+		}
+		
+		}catch(SQLException e) {
+			System.out.println(e);
+		}
+		return lista;	
+	}
 		
    	
 

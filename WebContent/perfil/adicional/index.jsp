@@ -15,11 +15,11 @@
 </head>
 <body style="background:#DDDEDE">
 <c:import url="menu.jsp"/>
-<% if(session.getAttribute("documento") == null) {
+<% if(session.getAttribute("documentoColab") == null) {
 	response.sendRedirect("../../index.html");
 }%>
 <div style= "margin-top:10%" class="container">
-  <h3>Bem Vindo Colaborador ${documento}</h3>
+  <h3>Bem Vindo Colaborador ${documentoColab}</h3>
 
   <p h2> Você está vinculado a empresa: ${cadastro.documento},  ${cadastro.nome}  </h2 p>
 </div>

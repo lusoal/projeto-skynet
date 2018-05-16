@@ -29,7 +29,12 @@
       <button name="command" value="ListarUsuario" style="margin-right: 5%" class="btn btn-light" type=submit>Alterar Cadastro</button>
    	</form>
     </li>
-   <form style="margin-left: 60%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+    <li class="nav-item">
+     <form style="margin-right: 5%; margin-left: 25%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+      <button name="command" value="ListarTodasEmpresas" style="margin-right: 5%" class="btn btn-light" type=submit>Listar Empresas</button>
+   	</form>
+    </li>
+   <form style="margin-left: 40%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
          <button type="submit" name="command" value="Logout" class="btn btn-info">Sair</button></form>
   </ul>
 </nav>

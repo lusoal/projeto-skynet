@@ -29,6 +29,12 @@ public class AlterarCadastro implements Command {
 		String pSite = request.getParameter("site");
 		
 		String pSenha = request.getParameter("senha");
+		boolean pAdicional = Boolean.parseBoolean(request.getParameter("adicional"));
+		
+		//Se a requisicao vir do administrador para alterar alguma informacao de um cadastro
+		boolean pRedirect = Boolean.parseBoolean(request.getParameter("redirect"));
+		
+		System.out.println("Valor Adicional: "+pAdicional);
 		
 		CadastroService service = new CadastroService();
 		Cadastros cad = new Cadastros(Long.parseLong(pDocumento), pNome, null, pEmail, pEndereco, Long.parseLong(pTelefoneFixo), 
@@ -36,15 +42,27 @@ public class AlterarCadastro implements Command {
 		try {
 			//verificar possibilidade de enviar uma mensagem com cadastro alterado
 			service.alterarCadastro(cad);
-			if(pTipo.equals("Administrador")) {
-				command.ListarUsuario.listarAdministrador(request, response);
-			}else if(pTipo.equals("cartorio")) {
+			
+			if(pTipo != null && pTipo.equals("Administrador")) {
+				if(pRedirect) {
+					AlterarCadastrosComAdm alterar = new AlterarCadastrosComAdm();
+					alterar.executar(request, response);
+				}else {
+					command.ListarUsuario.listarAdministrador(request, response);
+				}
+			}else if(pTipo != null && pTipo.equals("cartorio")) {
 				command.ListarUsuario.listarCartorio(request, response);
-			}else if(pTipo.equals("empresa")) {
+			}else if(pTipo != null && pTipo.equals("empresa")) {
 				System.out.println("Listar empresa");
 				command.ListarUsuario.listarEmpresa(request, response);
+			}else if(pAdicional) {
+				System.out.println("Listar usuario Adicional");
+				ListarCadastroAdcional listar = new ListarCadastroAdcional();
+				listar.executar(request, response);
 			}
+			
 		}catch(Exception e) {
+			System.out.println(e);
 			System.out.println("Erro atualizar cadastro");
 		}
 

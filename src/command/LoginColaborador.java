@@ -41,7 +41,7 @@ public class LoginColaborador implements Command {
 				 HttpSession session= request.getSession();
 				 System.out.println(cadastro.getTipo());
 			     session.setAttribute("cadastro", cadastro);
-			     session.setAttribute("documento", login.getDocumento());
+			     session.setAttribute("documentoColab", login.getDocumento());
 			     response.sendRedirect("perfil/adicional/index.jsp");
 			 }
 			 
