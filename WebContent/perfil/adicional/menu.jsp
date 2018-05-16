@@ -19,13 +19,18 @@
                   <input type="hidden" name="tipo" value="adicional">
                     <button class="btn btn-light"  name="command" value="ListarTermosVinculados" type=submit>Upload Termos</button>
                   </form>
+                  <form style="margin-right: 5%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+                <input type="hidden" name="documento" value="${documentoColab}">
+                    <button class="btn btn-light"  name="command" value="ListarCadastroAdd" type=submit>Alterar Meu Cadastro</button>
+                  </form>
+                  
       <li class="nav-item">
         <form style="margin-right: 10%; margin-left: 2%"class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
           <input type="hidden" name="documento" value="${cadastro.documento}">
-            <button name="command" value="ListarCadastroAdcional" style="margin-right: 5%" class="btn btn-light" type=submit>Alterar Cadastro</button>
+            <button name="command" value="ListarCadastroAdcional" style="margin-right: 5%" class="btn btn-light" type=submit>Alterar Cadastro Empresa</button>
           </form>
         </li>
-        <form style="margin-left: 110%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+        <form style="margin-left: 50%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
           <button type="submit" name="command" value="Logout" class="btn btn-info">Sair</button></form>
         </ul>
       </nav>

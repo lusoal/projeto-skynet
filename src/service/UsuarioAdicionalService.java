@@ -29,5 +29,13 @@ public class UsuarioAdicionalService {
 		}
 		return dao.listarAdicional(adicional, sqlSelect);
 	}
+	
+	public void listarMeuCadastro(UsuarioAdicional adicional) {
+		dao.listarMeuCadastro(adicional);
+	}
+	
+	public void alterarUsuarioAdicional(UsuarioAdicional adicional) {
+		dao.alterarCadastroAdicional(adicional);
+	}
 }
 

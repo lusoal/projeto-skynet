@@ -61,4 +61,42 @@ public class UsuarioAdicionalDao {
 	return add;
 
 	}
-}
+	
+	public void listarMeuCadastro(UsuarioAdicional adicional){
+		try {
+		String sqlSelect = "SELECT * FROM usuarioAdicional WHERE documento = ?";
+		
+		Connection conn = ConnectionFactory.realizarConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);
+		stm.setLong(1, adicional.getDocumento());
+		ResultSet rs = stm.executeQuery();
+		
+		if(rs.next()) {
+			adicional.setDocumentoPrinc(rs.getLong("documentoPrincipal"));
+			adicional.setNome(rs.getString("nome"));
+			adicional.setPerfil(rs.getString("perfil"));
+			adicional.setEmail(rs.getString("email"));
+		}
+		}catch(SQLException e) {
+			System.out.println(e);
+		}
+		}
+	
+		public void alterarCadastroAdicional(UsuarioAdicional adicional) {
+			try {
+				
+				String sqlSelect = "UPDATE usuarioAdicional SET nome = ?, email = ? WHERE documento = ?";
+				Connection conn = ConnectionFactory.realizarConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);
+				stm.setString(1, adicional.getNome());
+				stm.setString(2, adicional.getEmail());
+				stm.setLong(3, adicional.getDocumento());
+				stm.execute();
+				
+			}catch(Exception e) {
+				System.out.println(e);
+				}
+			}
+	
+	}
+
