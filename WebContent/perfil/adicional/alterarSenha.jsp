@@ -135,7 +135,7 @@
                                           </br>
                                           <input type="password" name="senha1" class="form-control input-sm chat-input" placeholder="Confirme sua Senha" />
                                         </br>
-                                        <input type="hidden" name="documento" value="${documento}" />
+                                        <input type="hidden" name="documento" value="${documentoColab}" />
 
                                         <div class="flex-row">
                                           <div class="wrapper">

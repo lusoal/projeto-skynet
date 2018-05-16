@@ -21,8 +21,13 @@
       <input type="hidden" name="tipo" value="administrador">	
       <button name="command" value="ListarUsuario" style="margin-right: 5%" class="btn nav-link" type=submit>Alterar Cadastro</button>
    	</form>
+   	 </li>
+   	<li class="nav-item">
+   	<form style="margin-left: 20%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+      <button name="command" value="AdminVisualizarTodos" class="btn nav-link" type=submit>Listar Todos Cadastros</button>
+      </form>
     </li>
-   <form style="margin-left: 60%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
+   <form style="margin-left: 20%" class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/controller.do" method="post">
          <button type="submit" name="command" value="Logout" class="btn btn-info">Sair</button></form>
   </ul>
 </nav>

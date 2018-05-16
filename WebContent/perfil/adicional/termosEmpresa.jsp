@@ -14,7 +14,7 @@
 				</head>
 				<body style="background:#DDDEDE;">
 					<c:import url="menu.jsp"/>
-					<% if(session.getAttribute("documento") == null) {
+					<% if(session.getAttribute("documentoColab") == null) {
 						response.sendRedirect("../../index.html");
 					}%>
 					<div style="margin-top:3%" class="container">
