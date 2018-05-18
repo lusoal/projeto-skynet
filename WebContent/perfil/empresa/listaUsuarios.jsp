@@ -10,9 +10,11 @@
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+				  <script type="text/javascript" src="vendor/js/validacoes.js"></script>
+				  <script type="text/javascript" src="vendor/jqueryplugin/dist/jquery.mask.min.js"></script>
 
 
-					<script type="text/javascript" src="../../vendor/js/validacoes.js"></script>
+					<script type="text/javascript" src="vendor/js/validacoes.js"></script>
 					<title>Usuarios Adicionais</title>
 				</head>
 				<body style="background:#DDDEDE;">
@@ -25,14 +27,14 @@
 		</br>
 		<form action="${pageContext.request.contextPath}/controller.do" method="post">
 			<div class="row">
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 				</div>
 				<div class="col-sm-6">
 					<input class="form-control" type="text" placeholder="Digite o nome do usuario" name="nome" aria-label="Search">
 						<input type="hidden" name="documentoPrincipal" value="${documento}">
 							<input type="hidden" name="tipo" value="empresa">
 							</div>
-							<div class="col-sm-2">
+							<div class="col-sm-3">
 								<button name="command" value="ListarAdicional" class="btn btn-outline-success btn-rounded" type="submit">Search</button>
 							</div>
 						</div>
@@ -61,7 +63,7 @@
 												<div class="form-group">
 													<label class="control-label col-sm-2">Documento</label>
 													<div class="col-sm-10">
-														<input class="form-control" id="email" placeholder="Cadastre o CPF" name="documento">
+														<input id="cpfcnpj" class="form-control" maxlength="14" minlength="11" placeholder="Cadastre o CPF" name="documento">
 														</div>
 													</div>
 													<input type="hidden" name="documentoPrincipal" value="${documento}">
@@ -69,7 +71,7 @@
 															<div class="form-group">
 																<label class="control-label col-sm-2">Nome</label>
 																<div class="col-sm-10">
-																	<input class="form-control" id="email" placeholder="Insira o Nome" name="nome">
+																	<input class="form-control"  placeholder="Insira o Nome" name="nome">
 																	</div>
 																</div>
 																<div class="form-group">

@@ -20,7 +20,7 @@
 					<div style="margin-top:3%" class="container">
 						<br>
 							<br>
-								<h6>Faça Download dos Termos:</h6>
+								<center><h4>Faça Download dos Termos:</h4></center>
 							</br>
 						</br>
 						<table class="table table-striped">
@@ -39,7 +39,7 @@
 												<input type="hidden" name="id" value="${arquivo.id}"readonly>
 													<td><input type="text" name="nome" value="${arquivo.data}"readonly></td>
 													<input type="hidden" name="tipo" value="Administrador">
-														<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>
+														<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="7%"></td>
 														<td><button type="submit" name="command" value="DownloadTermos" class="btn btn-success btn-sm">Download</button>
 													</tr></form>
 												</c:forEach>

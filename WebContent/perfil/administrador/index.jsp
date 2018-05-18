@@ -13,15 +13,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <title>Home</title>
 </head>
-<body>
+<body style="background:#DDDEDE">
 <c:import url="menu.jsp"/>
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../../index.html");
 }%>
 <div style= "margin-top:10%" class="container">
   <h3>Bem Vindo Administrador ${documento}</h3>
-  <p>Aqui e a sua central, onde voce pode, aprovar ou reprovar cadastros, alterar termos de empresas e cartorio e muito mais.</p>
-  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+  <p>Aqui e a sua central, onde voce pode, aprovar ou reprovar cadastros, alterar termos de empresas e cartorio</p>
+  <p> Além de verificar pendencias e gerenciar o sistema!</p>
+  
 </div>
 
 </body>

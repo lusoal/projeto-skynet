@@ -18,10 +18,11 @@
 						response.sendRedirect("../../index.html");
 					}%>
 					<div style="margin-top:3%" class="container">
-						<h5>Upload de Termo Assinado</h5>
+						<center><h4>Upload de Termo Assinado</h4></center>
 					</br>
-				</br>
-				
+
+				<div class ="row">
+					<div class ="col-sm-5">
 
 				<form action="${pageContext.request.contextPath}/controller.do" enctype='multipart/form-data' method="post">
 					<input  type="file" name="arquivo">
@@ -30,10 +31,9 @@
 								<input type="hidden" name="nome" value="termo_empresa">
 									<button type="submit" name="command" value="UploadTermos" class="btn btn-success btn-sm">Adicionar</button>
 								</form>
-
-								<br>
-									<br>
-										<br>
+							</div>
+						</div>
+               <br>
 											<h5>Meus Ultimos Termos Assinados</h5>
 											<br>
 												<table class="table table-hover">
@@ -53,7 +53,7 @@
 																		<input type="hidden" name="id" value="${arquivo.id}"readonly>
 																			<td><input type="text" name="nome" value="${arquivo.data}"readonly></td>
 																			<input type="hidden" name="tipo" value="Empresa">
-																				<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="10%"></td>
+																				<td><img src="http://portal.ifba.edu.br/dgcom/imagens/pdficon.png/@@images/image.png" width="7%"></td>
 																				<td><button type="submit" name="command" value="DownloadTermos" class="btn btn-success btn-sm">Download</button>
 																			</tr></form>
 																		</c:forEach>

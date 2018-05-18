@@ -21,7 +21,7 @@
 						<h5>Upload de Termo Assinado</h5>
 					</br>
 				</br>
-				
+
 
 				<form action="${pageContext.request.contextPath}/controller.do" enctype='multipart/form-data' method="post">
 					<input  type="file" name="arquivo">
