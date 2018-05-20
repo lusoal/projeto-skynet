@@ -12,25 +12,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Todos Cadastros</title>
 </head>
-<body>
+<body style="background:#DDDEDE">
 <c:import url="menu.jsp"/>
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../../index.html");
 }%>
 <br>
-<h2>Todos os Cadastros</h2>
+<center><h2>Todos os Cadastros</h2></center>
 <br>
-<table class="table table-striped">
-  						<thead>
+<table class="table table-hover">
+  						<thead style="background:white;">
 								<tr>
 									<th>Tipo</th>
 									<th>CNPJ</th>
 									<th>Razao social</th>
 									<th>Email</th>
-									<th>Aprovacao</th>
+									<th>Cadastros</th>
 								</tr>
 							</thead>
-  							<tbody>
+  							<tbody style="background:white;">
 							<c:forEach var="cadastros" items="${cadastros}">
 								<form action="${pageContext.request.contextPath}/controller.do" method="post">
 									<tr>

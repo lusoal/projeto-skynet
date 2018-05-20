@@ -31,7 +31,7 @@ public class LoginColaborador implements Command {
 			 System.out.println("Login Permitido");
 			 if(service.verificarSenha(login)) {
 				 System.out.println("status false");
-				request.setAttribute("documento", login.getDocumento());
+				request.setAttribute("documentoColab", login.getDocumento());
 				RequestDispatcher view = request.getRequestDispatcher("perfil/adicional/alterarSenha.jsp");
 				view.forward(request, response); 
 			 }else {

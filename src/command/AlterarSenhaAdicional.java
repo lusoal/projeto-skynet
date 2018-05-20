@@ -19,7 +19,9 @@ public class AlterarSenhaAdicional implements Command {
 		String pDocumento = request.getParameter("documento");
 		
 		if(pSenha.equals(pSenha1)) {
-			Login login = new Login(Long.parseLong(pDocumento), pSenha);
+			System.out.println(pSenha1);
+			System.out.println(pDocumento);
+			Login login = new Login(Long.parseLong(pDocumento), pSenha1);
 			LoginService service = new LoginService();
 			service.alterarSenhaAssociado(login, pSenha);
 			response.sendRedirect("index.html");

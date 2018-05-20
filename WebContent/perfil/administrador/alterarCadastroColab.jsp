@@ -23,7 +23,7 @@ function myFunction() {
 </script>
 
 </head>
-<body>
+<body style="background:#DDDEDE">
 <c:import url="menu.jsp"/>
 <% if(session.getAttribute("documento") == null) {
 	response.sendRedirect("../../index.html");
@@ -33,7 +33,7 @@ function myFunction() {
 <div class ="containder-fluid" style="padding:5%">
     <form  method="post" action="${pageContext.request.contextPath}/controller.do" id="formAlterar">
     <div id="color_23">
-        
+
     <div class="row">
         <br>
 	<div class="form-group col-md-4">
@@ -46,7 +46,7 @@ function myFunction() {
 	<input type="hidden" name="documento" value="${documento2}">
 	<input type="hidden" name="tipo" value="Administrador">
 	<input type="hidden" name="redirect" value="true">
-	
+
 	<div class="form-group col-md-2">
 		<label for="campo2">Telefone</label> <input type="text"
 			class="form-control" name="telefone_fixo" value="${usuario.telefoneFixo}">
@@ -56,16 +56,16 @@ function myFunction() {
 			class="form-control" name="telefone_celular" value="${usuario.telefoneCelular}">
     </div>
 </div>
-        
+
 <div class="row">
 	<div class="form-group col-md-12">
 		<label for="campo1">Endereco</label> <input type="text"
 			class="form-control" name="endereco" value="${usuario.endereco}">
 	</div>
-	
-        
+
+
         </div>
-        
+
 <div class="row">
 	<div class="form-group col-md-3">
 		<label for="campo1">Documento Contato Principal</label> <input type="text"
@@ -80,10 +80,10 @@ function myFunction() {
 			class="form-control" name="cont_email" value="${usuario.contatoEmail}">
 	</div>
     </div>
-        
+
     <div class= "row">
         <div class="form-group col-md-6">
-            
+
 		<label for="campo3">Site</label> <input type="text"
 			class="form-control" name="site" value="${usuario.site}">
 	</div>
@@ -91,7 +91,7 @@ function myFunction() {
 		<label for="campo3">Senha</label> <input type="password" class="form-control" name="senha" id="senha" value="${usuario.senha}">
 		<input type="checkbox" onclick="myFunction()"> Mostrar Senha
 	</div>
-	</div>     
+	</div>
 <div id="actions" class="row">
 	<div class="col-sm-6">
 		<button name="command" type="submit" value="AlterarCadastro" class="btn btn-primary" id="alterar">Alterar</button>

@@ -75,7 +75,7 @@
 
                                       <label for="cpfOuCnpj" type="text" class="sr-only"> Digite seu CPF </label>
 
-                                      <input type="text" name="documento" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
+                                      <input type="text" name="documentoTeste" id="cpfcnpj" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
                                       <button class="btn btn-sm btn btn-success btn-block" name="command" value="VerificarPre" type="submit">Cadastrar</button>
 
@@ -100,7 +100,7 @@
 
                                     <input type="text" name="documento" id="cpfcnpj2" class="form-control" maxlength="14" minlength="11"  placeholder="Digite seu CPF" required autofocus />
 
-                                    <input type="password"  name="senha" class="form-control" maxlength="32" minlength="6"  placeholder="Digite sua senha" required>
+                                    <input type="password"  name="alterarParaSenha" class="form-control" maxlength="32" minlength="6"  placeholder="Digite sua senha" required>
                                       <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="colaborador" value="usuarioAdicional" id="defaultCheck1">
                                           <label class="form-check-label" for="defaultCheck1">
@@ -136,7 +136,6 @@
                                           <input type="password" name="senha1" class="form-control input-sm chat-input" placeholder="Confirme sua Senha" />
                                         </br>
                                         <input type="hidden" name="documento" value="${documentoColab}" />
-
                                         <div class="flex-row">
                                           <div class="wrapper">
                                             <span class="group-btn">

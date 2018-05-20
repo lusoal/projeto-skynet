@@ -20,8 +20,8 @@
             }%>
             <div style= "margin-top:10%" class="container">
               <h3>Bem Vindo Empresa ${documento}</h3>
-              <p>Aqui e a sua central, onde voce pode, aprovar ou reprovar cadastros, alterar termos de empresas e muito mais.</p>
-              <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+              <p>Aqui e a sua central, onde voce pode, aprovar ou reprovar cadastros, alterar termos de empresas</p>
+              <p></p>
             </div>
 
           </body>

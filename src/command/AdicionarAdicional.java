@@ -15,6 +15,10 @@ public class AdicionarAdicional implements Command {
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pDocumento = request.getParameter("documento");
+		pDocumento = pDocumento.replace(".", "");
+		pDocumento = pDocumento.replace("-", "");
+		pDocumento = pDocumento.replace("/", "");
+		
 		String pNome = request.getParameter("nome");
 		String pEmail = request.getParameter("email");
 		String pSenha = request.getParameter("senha");

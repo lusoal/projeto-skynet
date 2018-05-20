@@ -33,6 +33,9 @@
 				<% if(session.getAttribute("documento") == null) {
 					response.sendRedirect("../../index.html");
 				}%>
+				<br>
+          <br>
+        <center> <h4> Alterar Cadastro </h6></center>
 				<div class ="containder-fluid" style="padding:5%">
 					<form  method="post" action="${pageContext.request.contextPath}/controller.do" id="formAlterar">
 						<div id="color_23">
