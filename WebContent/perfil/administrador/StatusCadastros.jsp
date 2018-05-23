@@ -55,7 +55,7 @@
                   <td><input type="text" name="tipo" value="${publico.tipo}"readonly></td>
                   <td><input type="text" name="documento" value="${publico.documento}"readonly></td>
                   <td><input type="text" name="nome" value="${publico.nome}" readonly></td>
-                  <td><input type="text" name="nome" value="${publico.email}" readonly></td>
+                  <td><input type="text" name="email" value="${publico.email}" readonly></td>
                   <td><button type="submit" name="command" value="AlterarPublico" class="btn btn-success btn-sm">Aprovar</button>
                   <button type="submit" name="command" value="RemoverPublico" class="btn btn-danger btn-sm">Remover</button></td>
                 </tr></form>
