@@ -10,6 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import model.Publico;
 
+//Configurar remetente na linha 50 e credenciais na linha 40
 public class SendMail {
 	
 	private String texto;
@@ -24,7 +25,7 @@ public class SendMail {
 	public boolean sendEmailPublico(Publico publico) {
 		 Properties props = new Properties();
 		 boolean retorno = false;
-         /** Parâmetros de conexão com servidor Gmail */
+         /** Parï¿½metros de conexï¿½o com servidor Gmail */
          props.put("mail.smtp.host", "smtp.gmail.com");
          props.put("mail.smtp.socketFactory.port", "465");
          props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -40,22 +41,22 @@ public class SendMail {
                           }
                      });
 
-         /** Ativa Debug para sessão */
+         /** Ativa Debug para sessï¿½o */
          session.setDebug(true);
 
          try {
 
                Message message = new MimeMessage(session);
-               message.setFrom(new InternetAddress("seuemail@gmail.com")); //Remetente
+               message.setFrom(new InternetAddress("")); //Remetente
                String email = publico.getEmail();
                
-               Address[] toUser = InternetAddress //Destinatário(s)
+               Address[] toUser = InternetAddress 
                           .parse(email);  
 
                message.setRecipients(Message.RecipientType.TO, toUser);
                message.setSubject(assunto);//Assunto
                message.setText(texto);
-               /**Método para enviar a mensagem criada*/
+               /**Mï¿½todo para enviar a mensagem criada*/
                Transport.send(message);
                retorno = true;
           } catch (MessagingException e) {
