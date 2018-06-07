@@ -120,14 +120,15 @@
 														</thead>
 														<tbody style="background:white;">
 															<c:forEach var="adicional" items="${arrayAdicional}">
-																<form action="${pageContext.request.contextPath}/AlterarAdicional" method="post">
+																<form action="${pageContext.request.contextPath}/controller.do" method="post">
 																	<tr>
-																		<td><input type="text" name="tipo" value="${adicional.documento}"readonly></td>
-																		<td><input type="text" name="documento" value="${adicional.nome}"readonly></td>
-																		<td><input type="text" name="nome" value="${adicional.email}" readonly></td>
-																		<td><input type="text" name="nome" value="${adicional.perfil}" readonly></td>
-																		<td><button type="submit" class="btn btn-success btn-sm">Alterar</button></td>
-																	</tr></form>
+																		<td><input type="text" name="documento" value="${adicional.documento}"readonly></td>
+																		<td><input type="text" name="nome" value="${adicional.nome}"readonly></td>
+																		<td><input type="text" name="email" value="${adicional.email}" readonly></td>
+																		<td><input type="text" name="perfil" value="${adicional.perfil}" readonly></td>
+																		<input type="hidden" name="tipo" value="empresa">
+																		<td><button type="submit" name="command" value="AlterarAdicionalMain" class="btn btn-success btn-sm">Alterar</button></td>
+																		</tr></form>
 																</c:forEach>
 
 															</tbody>
