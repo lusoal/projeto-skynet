@@ -12,11 +12,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import org.apache.log4j.Logger;
 
 @WebFilter("/controller.do")
 public class LoginFilter implements Filter {
-
+	
+	//Logging initialize on the class
+	final static Logger logger = Logger.getLogger(LoginFilter.class);
+	
 	public void destroy() {
 	}
 
@@ -32,6 +35,9 @@ public class LoginFilter implements Filter {
 		String uri = req.getRequestURI();
 		String comando = req.getParameter("command");
 		
+		logger.info("Was execute the follow command: " + comando);
+		
+		
 		System.out.println(session.getAttribute("documento"));
 		
 		Long logado = null;
@@ -46,6 +52,7 @@ public class LoginFilter implements Filter {
 			 }
 			 
 		}catch(Exception e) {
+			logger.error("Request erro on webfilter, check webfilter " + e);
 			System.out.println(e);
 		}
 		
@@ -59,9 +66,16 @@ public class LoginFilter implements Filter {
 				&& !comando.equals("RealizarLogin") && !comando.equals("DownloadTermos") && !comando.equals("CadastrarPublico")
 				&& !comando.equals("LoginColaborador") && !comando.equals("PreCadastroTermos") && !comando.equals("VerificarPre") && !comando.equals("CadastrarUsuario")
 				&& !comando.equals("AlterarSenhaAdicional")) {
+			logger.info("Unable to accept request, user not logged in");
 			((HttpServletResponse) response).sendRedirect(path + "/index.html");
 		} else {
 			// pass the request along the filter chain
+			if (logado == null) {
+				logger.info("The request "+comando+" is allowed for everybody");
+			}else {
+				logger.info("The request was done by: "+logado);
+			}
+			
 			chain.doFilter(request, response);
 		}
 		
